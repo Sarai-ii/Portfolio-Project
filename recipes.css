@@ -1,0 +1,10 @@
+.nav-list {
+    border-bottom: 2px solid gainsboro;
+    border-radius: 10px;
+    display: flex;
+    font-family: Raleway;
+    font-weight: 500;
+    justify-content: space-evenly;
+    list-style: none;
+    margin: 0;
+}
