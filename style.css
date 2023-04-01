@@ -1,0 +1,35 @@
+.nav-list {
+    border-bottom: 2px solid gainsboro;
+    border-radius: 10px;
+    display: flex;
+    font-family: Raleway;
+    font-weight: 500;
+    justify-content: space-evenly;
+    list-style: none;
+}
+/*
+How Do I remove the white spaces around an image?
+#nav-box {
+    display: grid;
+    border: 0;
+    grid-template-columns: 1fr;
+} */
+
+#nav-img {
+    width: 100%;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+ 
+a:hover {
+    text-decoration: underline;
+}
+
+h1 {
+    font-family: Montserrat;
+    position: relative ;
+    top: -550px;
+}
