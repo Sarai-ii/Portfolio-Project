@@ -1,3 +1,4 @@
+/* Header */
 .nav-list {
     border-bottom: 2px solid gainsboro;
     border-radius: 10px;
@@ -39,4 +40,39 @@ h1 {
     font-family: Montserrat;
     position: relative ;
     top: -500px;
+}
+/* Main */
+.main-container {
+    display: grid;
+    grid-template-rows: 1fr;
+}
+/* Sub */
+.sub-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+}
+.sub-container section {
+    align-items: center;
+}
+
+#easter, #fun-app, #top-cocktails {
+    grid-template-rows: 1fr 1fr 1fr;
+}
+#easter img, #fun-app img, #top-cocktails img {
+    max-width: 400px;
+    max-height: 400px;
+    list-style: none;
+}
+#chesapeake img{
+    width: 460px;
+    height: 460px;
+}
+
+li {
+    list-style: none;
+    justify-content: center;
+}
+section h2 {
+    align-items: center;
 }
