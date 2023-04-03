@@ -67,7 +67,7 @@ const foodSearch = (dish) => {
             <h1 id="title">${mealTitle}</h1>
             <hr>
 
-            <img src="${mealPic}">
+            <img id="meals" src="${mealPic}">
             <hr>
 
             <h2>Ingredients</h2>

@@ -14,18 +14,18 @@
 How Do I remove the white spaces around an image?
 */
 #nav-box {
-    display: grid;
     border: 0;
     grid-template-columns: 1fr;
     margin: 0;
+    width: auto;
 }
 
 #nav-img {
 
     margin: 0;
     padding: 0;
+    height: auto;
     width: 100%;
-    height: 550px;
 }
 
 a{
@@ -54,6 +54,7 @@ h1 {
     size: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    width: auto;
 }
 
 #easter img, #fun-app img {
@@ -72,6 +73,42 @@ li {
     list-style: none;
     /* justify-content: center; */
 }
-@media screen (max-width: 1000px){
-    
+
+
+@media screen and (max-width: 1400){
+
+    h1 {
+        font-family: Montserrat;
+        position: relative ;
+        text-shadow: -1px 1px 1px #0000003c, 
+        -1px 1px 2px #fefefe,
+        1px -1px 0 #edefdc,
+        -1px -1px 0 #df260e;
+    }
+    /* Main */
+
+
+    /* Sub */
+    .sub-container {
+        size: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    #easter img, #fun-app img {
+        max-width: 400px;
+        max-height: 400px;
+        list-style: none;
+    }
+
+    #top-cocktails img {
+        max-width: 400px;
+        max-height: 391px;
+        list-style: none;
+    }
+
+    li {
+        list-style: none;
+    }
+
 }
