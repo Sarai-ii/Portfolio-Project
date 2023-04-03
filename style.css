@@ -8,6 +8,7 @@
     justify-content: space-evenly;
     list-style: none;
     margin: 0;
+ 
 }
 /*
 How Do I remove the white spaces around an image?
@@ -40,39 +41,37 @@ h1 {
     font-family: Montserrat;
     position: relative ;
     top: -500px;
+    text-shadow: -1px 1px 1px #0000003c, 
+    -1px 1px 2px #fefefe,
+    1px -1px 0 #edefdc,
+    -1px -1px 0 #df260e;
 }
 /* Main */
-.main-container {
-    display: grid;
-    grid-template-rows: 1fr;
-}
+
+
 /* Sub */
 .sub-container {
+    size: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
-}
-.sub-container section {
-    align-items: center;
 }
 
-#easter, #fun-app, #top-cocktails {
-    grid-template-rows: 1fr 1fr 1fr;
-}
-#easter img, #fun-app img, #top-cocktails img {
+#easter img, #fun-app img {
     max-width: 400px;
     max-height: 400px;
     list-style: none;
 }
-#chesapeake img{
-    width: 460px;
-    height: 460px;
+
+#top-cocktails img {
+    max-width: 400px;
+    max-height: 391px;
+    list-style: none;
 }
 
 li {
     list-style: none;
-    justify-content: center;
+    /* justify-content: center; */
 }
-section h2 {
-    align-items: center;
+@media screen (max-width: 1000px){
+    
 }

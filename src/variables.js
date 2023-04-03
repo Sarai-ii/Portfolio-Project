@@ -1,20 +1,57 @@
-const ing1 = data.meals[0].strIngredient1
-const ing2 = data.meals[0].strIngredient2
-const ing3 = data.meals[0].strIngredient3
-const ing4 = data.meals[0].strIngredient4
-const ing5 = data.meals[0].strIngredient5
-const ing6 = data.meals[0].strIngredient6
-const ing7 = data.meals[0].strIngredient7
-const ing8 = data.meals[0].strIngredient8
-const ing9 = data.meals[0].strIngredient9
-const ing10 = data.meals[0].strIngredient10
-const ing11 = data.meals[0].strIngredient11
-const ing12 = data.meals[0].strIngredient12
-const ing13 = data.meals[0].strIngredient13
-const ing14 = data.meals[0].strIngredient14
-const ing15 = data.meals[0].strIngredient15
-const ing16 = data.meals[0].strIngredient16
-const ing17 = data.meals[0].strIngredient17
-const ing18 = data.meals[0].strIngredient18
-const ing19 = data.meals[0].strIngredient19
-const ing20 = data.meals[0].strIngredient20
+{
+    "drinks": [
+        {
+            "idDrink": "14364",
+            "strDrink": "Aztec Punch",
+            "strDrinkAlternate": null,
+            "strTags": null,
+            "strVideo": null,
+            "strCategory": "Punch / Party Drink",
+            "strIBA": null,
+            "strAlcoholic": "Alcoholic",
+            "strGlass": "Punch bowl",
+            "strInstructions": "Mix all ingredients in a pitcher. Mix thoroughly and pour into whatever is available, the bigger the better! This drink packs a big punch, so don't over do it.",
+            "strInstructionsES": "Mezclar todos los ingredientes en un frasco. Mezcla bien y vierte en lo que esté disponible, ¡cuanto más grande mejor! Esta bebida es fuerte, no te excedas.",
+            "strInstructionsDE": "Alle Zutaten in einem Krug mischen. Gründlich mischen und in was auch immer geben, je größer, desto besser! Dieses Getränk birgt einen großen Schlag, also Vorsicht.",
+            "strInstructionsFR": null,
+            "strInstructionsIT": "Mescola tutti gli ingredienti in una brocca.\r\nMescola bene e versa tutto ciò che è disponibile, più grande è, meglio è! Questa bevanda racchiude un grande pugno, quindi non esagerare.",
+            "strInstructionsZH-HANS": null,
+            "strInstructionsZH-HANT": null,
+            "strDrinkThumb": "https://www.thecocktaildb.com/images/media/drink/uqwuyp1454514591.jpg",
+            "strIngredient1": "Lemonade",
+            "strIngredient2": "Vodka",
+            "strIngredient3": "Rum",
+            "strIngredient4": "Ginger ale",
+            "strIngredient5": null,
+            "strIngredient6": null,
+            "strIngredient7": null,
+            "strIngredient8": null,
+            "strIngredient9": null,
+            "strIngredient10": null,
+            "strIngredient11": null,
+            "strIngredient12": null,
+            "strIngredient13": null,
+            "strIngredient14": null,
+            "strIngredient15": null,
+            "strMeasure1": "1 can ",
+            "strMeasure2": "5 oz ",
+            "strMeasure3": "7 oz ",
+            "strMeasure4": "About 1 bottle ",
+            "strMeasure5": null,
+            "strMeasure6": null,
+            "strMeasure7": null,
+            "strMeasure8": null,
+            "strMeasure9": null,
+            "strMeasure10": null,
+            "strMeasure11": null,
+            "strMeasure12": null,
+            "strMeasure13": null,
+            "strMeasure14": null,
+            "strMeasure15": null,
+            "strImageSource": null,
+            "strImageAttribution": null,
+            "strCreativeCommonsConfirmed": "No",
+            "dateModified": "2016-02-03 15:49:51"
+        }
+    ]
+}
