@@ -94,7 +94,7 @@ window.onload = () => {
             <ul><li>${measure7}  ${ing7}</li></ul>
             <ul><li>${measure8}  ${ing8}</li></ul>
             <ul><li>${measure9}  ${ing9}</li></ul>
-            <ul><li>${measure10}  ${ing10}</li></ul>
+            <ul><li>${measure10} ${ing10}</li></ul>
             <h2>Directions</h2>
             <p>${instructions}</p> `
         })

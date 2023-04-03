@@ -6,8 +6,10 @@ const foodSearch = (dish) => {
     fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${dish}`)
         .then((response) => response.json())
         .then((data) => {
+
+// Declaring Variable For InnerText To Append To
             section = document.querySelector("section")
-            // How to Access API
+// How to Access API
             let recipes = data.meals
             let recipe = data.meals[0]
             let mealTitle = data.meals[0].strMeal
