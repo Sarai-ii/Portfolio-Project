@@ -11,21 +11,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,900;1,100;1,300;1,500;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="recipes.css">
-    <script defer src="/src/country.js"></script>
-    <title>Around The World-What's'DISH</title>
+    <script defer src="./src/recipes.js"></script>
+    <title>Recipes</title>
 </head>
-<body>
-    <nav class="nav-bar">
-        <div>
-            <h1 id="heading"><a href="index.html">WHAT'S'DISH</a></h1>
-        </div>
-        <ul class="nav-list">
-            <li id="recipes"><a href="recipes.html">Recipes</a></li>
-            <li id="country"><a href="country.html">Around The World</a></li>
-            <li id="cocktails"><a href="cocktails.html">Cocktails</a></li>
-        </ul>
-    </nav>
-    <main class ="main-container">
-    </main>
+<nav class="nav-bar">
+    <div>
+        <h1 id="heading"><a href="index.html">WHAT'S'DISH</a></h1>
+        <form id="search-bar">
+            <input type="text" id="recipe-search" placeholder="Search A Recipe..." required>
+            <input type="submit" id="recipe-submit">
+        </form>
+    </div>
+    <ul class="nav-list">
+        <li id="recipes"><a href="recipes.html">Recipes</a></li>
+        <li id="country"><a href="country.html">Around The World</a></li>
+        <li id="cocktails"><a href="cocktails.html">Cocktails</a></li>
+    </ul>
+</nav>
+<body class="main-container">
+    <section id="meal-ideas">
+    </section>
 </body>
 </html>
