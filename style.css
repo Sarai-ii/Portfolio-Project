@@ -47,6 +47,7 @@ a:hover {
 }
 
 /* Main */
+
 #easter, #fun-app, #top-cocktails {
     justify-items:  
     width: auto;
@@ -75,7 +76,9 @@ a:hover {
     width: 50%; 
 }
 
-.main-text {
+
+.main-text,
+#sub-heading {
     background-color: rgb(160, 235, 235);
     color: black;
     text-align: center; 
