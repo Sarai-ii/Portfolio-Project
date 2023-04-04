@@ -1,31 +1,29 @@
 /* Header */
 .nav-list {
     border-bottom: 2px solid gainsboro;
-    border-radius: 10px;
+    border-radius: 9px;
     display: flex;
     font-family: Raleway;
     font-weight: 500;
     justify-content: space-evenly;
     list-style: none;
-    margin: 0;
+    margin: 10px;
  
 }
-/*
-How Do I remove the white spaces around an image?
-*/
+
 #nav-box {
     border: 0;
     grid-template-columns: 1fr;
+    height: 800px;
     margin: 0;
     width: auto;
 }
 
 #nav-img {
-
-    margin: 0;
+    height: 100%;
+    margin: -10px -5px 0 -5px;
     padding: 0;
-    height: auto;
-    width: 100%;
+    width: 101%;
 }
 
 a{
@@ -39,34 +37,31 @@ a:hover {
 
 h1 {
     font-family: Montserrat;
-    position: relative ;
-    top: -500px;
+    font-size: 2em;
+    position: relative;
     text-shadow: -1px 1px 1px #0000003c, 
     -1px 1px 2px #fefefe,
     1px -1px 0 #edefdc,
     -1px -1px 0 #df260e;
+    top: -500px;
 }
-/* Main */
-
 
 /* Sub */
+
 .sub-container {
-    size: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     width: auto;
 }
 
 #easter img, #fun-app img {
-    max-width: 400px;
     max-height: 400px;
-    list-style: none;
+    max-width: 400px;
 }
 
 #top-cocktails img {
-    max-width: 400px;
     max-height: 391px;
-    list-style: none;
+    max-width: 400px;
 }
 
 li {
@@ -74,41 +69,53 @@ li {
     /* justify-content: center; */
 }
 
+/* Footer */
+footer {
+    background-color: rgb(26, 81, 92);
+    color: #ffff;
+    margin: 0 -10px 0 0;
+}
+footer li a{
+    color: white;
+}
 
-@media screen and (max-width: 1400){
-
+@media screen and (max-width: 1350){
+    /* Nav */
     h1 {
         font-family: Montserrat;
         position: relative ;
-        text-shadow: -1px 1px 1px #0000003c, 
-        -1px 1px 2px #fefefe,
-        1px -1px 0 #edefdc,
-        -1px -1px 0 #df260e;
+        top: -500px;
     }
-    /* Main */
-
 
     /* Sub */
-    .sub-container {
-        size: 100%;
-        display: grid;
-        grid-template-columns: 1fr;
-    }
 
+    .sub-container {
+        display: grid;
+        grid-template-columns: 1;
+        width: auto;
+    }
     #easter img, #fun-app img {
-        max-width: 400px;
-        max-height: 400px;
         list-style: none;
+        max-height: 400px;
+        max-width: 400px;
     }
 
     #top-cocktails img {
-        max-width: 400px;
-        max-height: 391px;
         list-style: none;
+        max-height: 391px;
+        max-width: 400px;
     }
 
     li {
         list-style: none;
     }
 
+/* Footer */
+    footer {
+        background: red;
+        color: white;
+    }
+    footer li a{
+        color: white;
+    }
 }
