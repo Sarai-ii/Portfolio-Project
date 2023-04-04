@@ -35,7 +35,7 @@ a:hover {
     text-decoration: underline;
 }
 
-h1 {
+#nav-heading {
     font-family: Montserrat;
     font-size: 2em;
     position: relative;
@@ -46,30 +46,53 @@ h1 {
     top: -500px;
 }
 
-/* Sub */
-.main-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+/* Main */
+#easter, #fun-app, #top-cocktails {
+    justify-items:  
     width: auto;
 }
-/* .sub-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-} */
-
-#easter a > img, #fun-app a > img {
+    
+#easter a > img, 
+#fun-app a > img, 
+#top-cocktails a > img, 
+#chesapeake {
     height: 400px;
+    margin: 10px;
     width: 400px;
 }
 
-#top-cocktails a > img, #chesapeake {
-    height: 400px;
-    width: 400px;
+/* .main-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: auto; 
+}*/
+#main-img {
+    background-color: #e2e2e2;
+    /* margin-left: 50px; */
+    margin-top: 50px;
+    margin: 50px 0 10px 400px;
+    padding: 10px;
+    width: 50%; 
+}
+
+.main-text {
+    background-color: rgb(160, 235, 235);
+    color: black;
+    text-align: center; 
+    margin: 0 0 0 0 
+}
+.section-text {
+    text-align: center;
+}
+.sub-container {
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%
 }
 
 li {
     list-style: none;
-    /* justify-content: center; */
 }
 
 /* Footer */
@@ -95,14 +118,14 @@ footer a:hover {
     color: #ececec;
 }
 
-@media (width: 1000) and (max-width: 1350){
+@media screen and (700 <= width){
     /* Nav */
     h1 {
         font-family: Montserrat;
         position: relative ;
         top: -500px;
     }
-
+    
     #nav-box {
         border: 0;
         grid-template-columns: 1fr;
@@ -119,15 +142,14 @@ footer a:hover {
     }
 
     /* Sub */
-
+    .main-container {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
     .sub-container {
         display: grid;
         grid-template-columns: repeat(2,1fr);
-    }
-
-    #easter, #fun-app, #top-cocktails {
-        /* display: grid; */
-        /* grid-column: 2 */
     }
 
     #easter img, #fun-app img {
@@ -135,23 +157,19 @@ footer a:hover {
         height: 200px;
         width: 200px;
     }
+    #main-img {
+        background-color: #e2e2e2;
+        /* margin-left: 50px; */
+        margin-top: 50px;
+        margin: 50px 0 10px 50px;
+        padding: 20px;
+        width: 100%; 
+    }
 
     #top-cocktails img {
         list-style: none;
         height: 191px;
         width: 200px;
     }
-    /* Footer */
-    
-    footer, #footer-text {
-        padding: 12px 12px 12px 12px;
-        text-align: center;
-    }
 
-    footer ul{
-        list-style: none;
-    }
-
-    footer h4 {
-    }
 }

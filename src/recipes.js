@@ -1,5 +1,5 @@
 const form = document.querySelector("form")
-const submit = document.querySelector("search-submit")
+const footer = document.getElementById("footer-container")
 
 
 const foodSearch = (dish) => {
@@ -71,7 +71,6 @@ const foodSearch = (dish) => {
 
             <img id="meals" src="${mealPic}">
             <hr>
-
             <h2>Ingredients</h2>
             <ul><li>${measure1}  ${ing1} </li></ul>
             <ul><li>${measure2}  ${ing2}</li></ul>
@@ -93,17 +92,13 @@ const foodSearch = (dish) => {
             <ul><li>${measure18}  ${ing18}</li></ul>
             <ul><li>${measure19}  ${ing19}</li></ul>
             <ul><li>${measure20}  ${ing20}</li></ul>
-            
-            <video width="200" height="200" controls>
-            <source src="${prep}" type="video/mp4">
-            </video>
 
             <hr>
             <h2>Directions</h2>
             <p>${instructions}</p>
             `
     })
-    .catch(error  => {  error
+    .catch(error  => {
         const errorP = document.createElement("p")
         errorP.innerHTML = `No Results Found.`
         section.innerHTML = " "
@@ -113,11 +108,31 @@ const foodSearch = (dish) => {
 form.reset();
 }
 
+const footerDisplay = footer => {
+    footer.innerHTML = `
+        <ul>
+            <h4>About</h4>
+            <li id="footer-icons">
+                <a href="https://www.linkedin.com/in/saraibusiness/" title="LinkedIn"><img src="https://www.freepnglogos.com/uploads/linkedin-in-logo-png-1.png" width="50" alt="linkedin logo png"/></a>
+                <a href="https://github.com/Sarai-ii" title="Github"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50" alt="Github logo png"/></a>
+            </li>
+            <li id="footer-text"> 
+                © <a href="https://sarai-ii.github.io/My-Bio/">S.A.T Designs</a>--All Right Reserved 2023 
+            </li>
+        </ul>
+        `
+}
+
 form.addEventListener("submit", (event)=> {
     event.preventDefault()
     const dish = event.target[0].value
     foodSearch(dish)
+    footerDisplay(footer)
     
 }); 
+
+
+
+
 
 

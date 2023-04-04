@@ -32,7 +32,7 @@ a:hover {
     font-size: large;
 }
 
-h1, h2, h3 {
+h1, h2, h3,  {
     font-family: Montserrat;
     text-shadow: -1px 1px 1px #0000003c, 
     -1px 1px 2px #fefefe,
@@ -52,6 +52,8 @@ h1, h2, h3 {
 #drinks, #meals {
     border: solid 2px black ;
     border-radius: 16px;
+    margin: 10px 10px 5px 100px;
+    width: 40%;
 }
 
 .main-container{
@@ -70,6 +72,29 @@ body{
 
 li {
     list-style: none;
+}
+/* Footer */
+
+footer {
+
+    background-color: rgb(26, 81, 92);
+    color: #ffff;
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 -10px 0 0;
+    text-align: center;
+}
+  
+footer h4 {
+    border-bottom: 1px solid #de6b48;
+}
+  
+footer a, footer ul {
+    color: #de6b48;
+}
+  
+footer a:hover {
+    color: #ececec;
 }
 @media screen and (max-width: 1400){
 
