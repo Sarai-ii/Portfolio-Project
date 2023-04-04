@@ -47,21 +47,24 @@ h1 {
 }
 
 /* Sub */
-
-.sub-container {
+.main-container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
     width: auto;
 }
+/* .sub-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+} */
 
-#easter img, #fun-app img {
-    max-height: 400px;
-    max-width: 400px;
+#easter a > img, #fun-app a > img {
+    height: 400px;
+    width: 400px;
 }
 
-#top-cocktails img {
-    max-height: 391px;
-    max-width: 400px;
+#top-cocktails a > img, #chesapeake {
+    height: 400px;
+    width: 400px;
 }
 
 li {
@@ -71,15 +74,28 @@ li {
 
 /* Footer */
 footer {
+
     background-color: rgb(26, 81, 92);
     color: #ffff;
+    display: grid;
+    grid-template-columns: 1fr;
     margin: 0 -10px 0 0;
+    text-align: center;
 }
-footer li a{
-    color: white;
+  
+footer h4 {
+    border-bottom: 1px solid #de6b48;
+}
+  
+footer a, footer ul {
+    color: #de6b48;
+}
+  
+footer a:hover {
+    color: #ececec;
 }
 
-@media (min-width: 1000) and (max-width: 1350){
+@media (width: 1000) and (max-width: 1350){
     /* Nav */
     h1 {
         font-family: Montserrat;
@@ -87,42 +103,55 @@ footer li a{
         top: -500px;
     }
 
+    #nav-box {
+        border: 0;
+        grid-template-columns: 1fr;
+        height: 400px;
+        margin: 0;
+        width: auto;
+    }
+    
+    #nav-img {
+        height: 200px;
+        margin: -10px -5px 0 -5px;
+        padding: 0;
+        width: 101%;
+    }
+
     /* Sub */
 
     .sub-container {
         display: grid;
         grid-template-columns: repeat(2,1fr);
-        width: auto;
     }
 
     #easter, #fun-app, #top-cocktails {
         /* display: grid; */
-        grid-column: auto;
+        /* grid-column: 2 */
     }
 
     #easter img, #fun-app img {
         list-style: none;
-        max-height: 400px;
-        max-width: 400px;
+        height: 200px;
+        width: 200px;
     }
 
     #top-cocktails img {
         list-style: none;
-        max-height: 391px;
-        max-width: 400px;
+        height: 191px;
+        width: 200px;
+    }
+    /* Footer */
+    
+    footer, #footer-text {
+        padding: 12px 12px 12px 12px;
+        text-align: center;
     }
 
-
-    li {
+    footer ul{
         list-style: none;
     }
 
-/* Footer */
-    footer {
-        background: red;
-        color: white;
-    }
-    footer li a{
-        color: white;
+    footer h4 {
     }
 }
