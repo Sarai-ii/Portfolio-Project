@@ -1,4 +1,4 @@
-# WHAT'S'DISH -- PORTFOLIO PROJECT
+# 🍽 WHAT'S'DISH 🍽 - Porfolio Project
 
 ## Skills Applied:
 - Deploying a front-end application
@@ -7,11 +7,12 @@
 - Creative design and development
 - Vanilla Javascript back-end development
 
-<hr>
-
 ## Api Used:
 
 [**Meals Api**](https://www.themealdb.com/api.php)
+
+<br>
+
 [**Cocktails Api**](https://www.thecocktaildb.com/api.php)
 
 ## Functionality: 
@@ -20,7 +21,7 @@ This site was created to mimic a realistic online recipe site where a user can s
 Also, this site has an additional two subpages that are generated on load with random recipes, one for cusines found around the world, found [here](https://sarai-ii.github.io/Portfolio-Project/country.html), and the other for 
 [cocktails](https://sarai-ii.github.io/Portfolio-Project/cocktails.html) that will pair perfectly with your meal.
 
-<hr>
+### Snapshot of Site: 
 
 ## Purpose
 
