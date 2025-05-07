@@ -25,20 +25,20 @@ Also, this site has an additional two subpages that are generated on load with r
 
 ### 🖥️ Homepage
 
-![Homepage Banner](demo/homepageBanner.png)
+![Homepage Banner](./demo/homepageBanner.png)
 *The landing page showcasing the main banner.*
 
-![Homepage Screenshot](demo/homepageMain.png)
+![Homepage Screenshot](./demo/homepageMain.png)
 *The landing page showcasing the featured meal that generates randomly and navigation.*
 
 ### 📱 Responsive Design
 
-![Mobile View](demo/mobile-ATW.png)
+![Mobile View](./demo/mobile-ATW.png)
 *Optimized layout for mobile devices ensuring user accessibility.*
 
 ### 🛠️ Features Section
 
-![Search Engine](demo/recipeSearchEngine.png)
+![Search Engine](./demo/recipeSearchEngine.png)
 *Highlights of the core search functionality offered by the application that generates a random or specified meal based on what's typed into the search engine.*
 
 ## Purpose
