@@ -21,7 +21,25 @@ This site was created to mimic a realistic online recipe site where a user can s
 Also, this site has an additional two subpages that are generated on load with random recipes, one for cusines found around the world, found [here](https://sarai-ii.github.io/Portfolio-Project/country.html), and the other for 
 [cocktails](https://sarai-ii.github.io/Portfolio-Project/cocktails.html) that will pair perfectly with your meal.
 
-### Snapshot of Site: 
+## 📸 Project Snapshots
+
+### 🖥️ Homepage
+
+![Homepage Banner](demo/homepageBanner.png)
+*The landing page showcasing the main banner.*
+
+![Homepage Screenshot](demo/homepageMain.png)
+*The landing page showcasing the featured meal that generates randomly and navigation.*
+
+### 📱 Responsive Design
+
+![Mobile View](demo/mobile-ATW.png)
+*Optimized layout for mobile devices ensuring user accessibility.*
+
+### 🛠️ Features Section
+
+![Search Engine](demo/recipeSearchEngine.png)
+*Highlights of the core search functionality offered by the application that generates a random or specified meal based on what's typed into the search engine.*
 
 ## Purpose
 
