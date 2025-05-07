@@ -25,20 +25,22 @@ Also, this site has an additional two subpages that are generated on load with r
 
 ### 🖥️ Homepage
 
-![Homepage Banner](./demo/homepageBanner.png)
+![Homepage Banner](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageBanner.png)
 *The landing page showcasing the main banner.*
 
-![Homepage Screenshot](./demo/homepageMain.png)
-*The landing page showcasing the featured meal that generates randomly and navigation.*
+![Homepage Screenshot](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageMain.png)
+![Homepage Screenshot](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageFeatured.png)
+*The landing page showcasing the featured meal that generates randomly, featured meals, and navigation.*
 
 ### 📱 Responsive Design
 
-![Mobile View](./demo/mobile-ATW.png)
+![Mobile View](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/Mobile-ATW.PNG)
+![Mobile View](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/MobileCocktailsPage.PNG)
 *Optimized layout for mobile devices ensuring user accessibility.*
 
 ### 🛠️ Features Section
 
-![Search Engine](./demo/recipeSearchEngine.png)
+![Search Engine](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/RecipeSearchEngine.png)
 *Highlights of the core search functionality offered by the application that generates a random or specified meal based on what's typed into the search engine.*
 
 ## Purpose
