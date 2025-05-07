@@ -24,24 +24,28 @@ Also, this site has an additional two subpages that are generated on load with r
 ## 📸 Project Snapshots
 
 ### 🖥️ Homepage
-
-![Homepage Banner](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageBanner.png)
-*The landing page showcasing the main banner.*
-
-![Homepage Screenshot](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageMain.png)
-![Homepage Screenshot](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageFeatured.png)
-*The landing page showcasing the featured meal that generates randomly, featured meals, and navigation.*
+The landing page showcasing the main banner.
+<p align="center">
+  <img src="https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageBanner.png" alt="Homepage Banner" width="600" />
+</p>
+The landing page showcasing the featured meal that generates randomly, popular meals, and navigation.
+<p align="center">
+  <img src="https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageMain.png" alt="Homepage Featured Meal" width="600" />
+  <img src="https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/HomepageFeatured.png" alt="Homepage Featured Content" width="600" />
+</p>
 
 ### 📱 Responsive Design
-
-![Mobile View](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/Mobile-ATW.PNG)
-![Mobile View](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/MobileCocktailsPage.PNG)
-*Optimized layout for mobile devices ensuring user accessibility.*
+Optimized layout for mobile devices ensuring user accessibility.
+<p align="center">
+  <img src="https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/Mobile-ATW.PNG" alt="Mobile Around The World Recipe Randomizer" height="600" />
+  <img src="https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/MobileCocktailsPage.PNG" alt="Mobile View of Cocktails Page" height="600" />
+</p>
 
 ### 🛠️ Features Section
-
-![Search Engine](https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/RecipeSearchEngine.png)
-*Highlights of the core search functionality offered by the application that generates a random or specified meal based on what's typed into the search engine.*
+Highlights of the core search functionality offered by the application that generates a random or specified meal based on what's typed into the search engine.
+<p align="center">
+  <img src="https://github.com/Sarai-ii/Portfolio-Project/blob/main/demo/RecipeSearchEngine.png" alt="Results of Recipe Search Engine" width="600" />
+</p>
 
 ## Purpose
 
