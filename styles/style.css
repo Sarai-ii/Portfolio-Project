@@ -49,7 +49,6 @@ a:hover {
 /* Main */
 
 #easter, #fun-app, #top-cocktails {
-    justify-items:  
     width: auto;
 }
     
@@ -105,7 +104,6 @@ footer {
     color: #ffff;
     display: grid;
     grid-template-columns: 1fr;
-    margin: 0 -10px 0 0;
     text-align: center;
 }
   

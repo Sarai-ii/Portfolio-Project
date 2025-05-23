@@ -34,17 +34,44 @@ function displayRecipe(recipe) {
             ingredientsList.push(`<li>${meas || ""} ${ing}</li>`);
         }
     }
+    // If a Youtube link is available, embed it
+    const youtubeLink = recipe.strYoutube;
+    console.log(youtubeLink);
+    const youtubeEmbed = youtubeLink
+    ? `
+        <section class="recipe-section video-ingredients-wrapper">
+            <div class="ingredients-container">
+            <h2 class="section-heading">🧂 Ingredients</h2>
+            <ul class="ingredients-list">${ingredientsList.join("")}</ul>
+            </div>
+            <div class="video-wrapper">
+            <h2 class="section-heading">🎥 Watch How It's Made</h2>
+            <iframe 
+                src="https://www.youtube.com/embed/${youtubeLink.split("v=")[1]}" 
+                frameborder="0" 
+                allowfullscreen 
+                title="Recipe Video">
+            </iframe>
+            </div>
+        </section>
+        `
+        : `
+        <section class="recipe-section">
+            <h2 class="section-heading">🧂 Ingredients</h2>
+            <ul class="ingredients-list">${ingredientsList.join("")}</ul>
+        </section>
+    `;
 
     recipeContainer.innerHTML = `
-        <h1 id="title">${recipe.strMeal}</h1>
-        <hr>
-        <img id="meals" src="${recipe.strMealThumb}">
-        <hr>
-        <h2>Ingredients</h2>
-        <ul>${ingredientsList.join("")}</ul>
-        <hr>
-        <h2>Directions</h2>
-        <p>${recipe.strInstructions}</p>
+        <div class="recipe-card">
+            <h1 id="title">${recipe.strMeal}</h1>
+            <img id="meals" src="${recipe.strMealThumb}" alt="Photo of ${recipe.strMeal}">
+            ${youtubeEmbed}
+            <section class="recipe-section">
+            <h2 class="section-heading">👩‍🍳 Directions</h2>
+            <p class="instructions">${recipe.strInstructions}</p>
+            </section>
+        </div>
     `;
 }
 
@@ -115,6 +142,10 @@ shuffleButton.addEventListener("click", () => {
     // Check if all recipes have been shown
     if (shownRecipes.size === currentRecipes.length) {
         showMessage("You've seen all the recipes for this !");
+        form.reset(); // Reset the form
+        // Disable the button and remove clicking effect
+        shuffleButton.classList.add("clickable");
+        shuffleButton.disabled = true; 
         return;
     }
 

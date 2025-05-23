@@ -14,33 +14,40 @@
     <script defer src="./src/recipes.js"></script>
     <title>Recipes</title>
 </head>
-<nav class="nav-bar">
-    <div>
-        <h1 id="heading"><a href="index.html">WHAT'S'DISH</a></h1>
+<body>
+    <div class="page-container">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <h1 id="heading"><a href="index.html">WHAT'S DISH</a></h1>
+            </div>
+            <ul class="nav-list">
+                <li id="recipes"><a href="recipes.html">Recipes</a></li>
+                <li id="country"><a href="country.html">Around The World</a></li>
+                <li id="cocktails"><a href="cocktails.html">Cocktails</a></li>
+            </ul>
+        </nav>
+        <div class="main-container">
+            <h3 id="search-heading">Recipe Randomizer 
+                <br>Discover What's on The Menu Today</h3>
+            <p id="main-overview">Explore something new with the Recipe Randomizer. Simply enter an ingredient — like “salmon,” “tomato,” or “eggs” — or a dish name such as “General Tso’s,” and let the generator surprise you with a mouthwatering recipe. Whether you're cooking for yourself or the whole family, inspiration is just a click away. You can even hit the <strong>Shuffle Recipe</strong> button after submiting a keyword — for a fun, spontaneous twist on your meal planning.</p>
+            <form id="search-form-container">
+                <input type="text" id="search-bar" placeholder="What are you craving today?" required>
+                <input type="submit" id="recipe-submit">
+                <button id="random-recipe-shuffle" type="button"> Shuffle Recipe</button>
+            </form>
+            <div id="message-area"></div>
+            <section id="meal-ideas"></section>
+        </div>
     </div>
-    <ul class="nav-list">
-        <li id="recipes"><a href="recipes.html">Recipes</a></li>
-        <li id="country"><a href="country.html">Around The World</a></li>
-        <li id="cocktails"><a href="cocktails.html">Cocktails</a></li>
-    </ul>
-</nav>
-<body class="main-container">
-    <form id="search-bar">
-        <input type="text" id="recipe-search" placeholder="Search A Recipe..." required>
-        <input type="submit" id="recipe-submit">
-        <button id="random-recipe-shuffle" type="button"> Shuffle Recipe</button>
-    </form>
-    <div id="message-area"></div>
-    <section id="meal-ideas"></section>
     <footer id="footer-container">
-        <ul>
-            <h4>About</h4>
+        <h4 id="footer-heading"><a href="https://saraithomasv1.netlify.app">Created By: Sarai Thomas</a></h4>
+        <ul class="footer-list">
             <li id="footer-icons">
                 <a href="https://www.linkedin.com/in/saraibusiness/" title="LinkedIn"><img src="https://www.freepnglogos.com/uploads/linkedin-in-logo-png-1.png" width="50" alt="linkedin logo png"/></a>
                 <a href="https://github.com/Sarai-ii" title="Github"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50" alt="Github logo png"/></a>
             </li>
             <li id="footer-text"> 
-                © <a href="https://sarai-ii.github.io/My-Bio/">S.A.T Designs</a>--All Right Reserved 2023 
+                © <a href="https://saraithomasv1.netlify.app/#projects">S.A.T Designs</a>--All Right Reserved 2023 
             </li>
         </ul>
     </footer>
