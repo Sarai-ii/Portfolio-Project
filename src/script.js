@@ -25,3 +25,4 @@ let navLogo = logo => {
     <h1 id="nav-heading">WHAT'S'DISH</h1>`
     homeLink.setAttribute("href", "index.html")
 }
+

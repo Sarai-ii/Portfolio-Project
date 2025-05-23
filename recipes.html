@@ -17,10 +17,6 @@
 <nav class="nav-bar">
     <div>
         <h1 id="heading"><a href="index.html">WHAT'S'DISH</a></h1>
-        <form id="search-bar">
-            <input type="text" id="recipe-search" placeholder="Search A Recipe..." required>
-            <input type="submit" id="recipe-submit">
-        </form>
     </div>
     <ul class="nav-list">
         <li id="recipes"><a href="recipes.html">Recipes</a></li>
@@ -29,7 +25,24 @@
     </ul>
 </nav>
 <body class="main-container">
+    <form id="search-bar">
+        <input type="text" id="recipe-search" placeholder="Search A Recipe..." required>
+        <input type="submit" id="recipe-submit">
+        <button id="random-recipe-shuffle" type="button"> Shuffle Recipe</button>
+    </form>
+    <div id="message-area"></div>
     <section id="meal-ideas"></section>
-    <footer id="footer-container"></footer>
+    <footer id="footer-container">
+        <ul>
+            <h4>About</h4>
+            <li id="footer-icons">
+                <a href="https://www.linkedin.com/in/saraibusiness/" title="LinkedIn"><img src="https://www.freepnglogos.com/uploads/linkedin-in-logo-png-1.png" width="50" alt="linkedin logo png"/></a>
+                <a href="https://github.com/Sarai-ii" title="Github"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50" alt="Github logo png"/></a>
+            </li>
+            <li id="footer-text"> 
+                © <a href="https://sarai-ii.github.io/My-Bio/">S.A.T Designs</a>--All Right Reserved 2023 
+            </li>
+        </ul>
+    </footer>
 </body>
 </html>
