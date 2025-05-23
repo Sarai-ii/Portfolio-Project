@@ -1,138 +1,160 @@
+// Declaring Variable For Elements On The webpage
 const form = document.querySelector("form")
 const footer = document.getElementById("footer-container")
+const recipeContainer = document.querySelector("#meal-ideas")
+const shuffleButton = document.querySelector("#random-recipe-shuffle")
+const messageArea = document.querySelector("#message-area")
 
+// Variable to store the last search term to shuffle based on the last search
+let lastSearchTerm = ""
+// stores current recipes array globally
+let currentRecipes = []
+/* 
+🧠 Related LeetCode-style Problems
+"Random Pick Without Replacement"
+"Insert, Delete, GetRandom O(1)"
+"Design Randomized Set"
+"Fisher-Yates Shuffle"*/
+let shownRecipes = new Set();
 
+// Utility: Show a temporary in-page message
+function showMessage(message) {
+    messageArea.innerHTML = `<p>${message}</p>`; // Display the message
+    setTimeout(() => messageArea.innerHTML = "", 4000); // Clear it after 4 sec
+}
+
+// NEW reusable function to display any recipe passed in
+function displayRecipe(recipe) {
+    // Dynamically build the ingredients list (only non-empty)
+    const ingredientsList = [];
+    for (let i = 1; i <= 20; i++) {
+        const ing = recipe[`strIngredient${i}`];
+        const meas = recipe[`strMeasure${i}`];
+        if (ing && ing.trim()) {
+            ingredientsList.push(`<li>${meas || ""} ${ing}</li>`);
+        }
+    }
+    // If a Youtube link is available, embed it
+    const youtubeLink = recipe.strYoutube;
+    console.log(youtubeLink);
+    const youtubeEmbed = youtubeLink
+    ? `
+        <section class="recipe-section video-ingredients-wrapper">
+            <div class="ingredients-container">
+            <h2 class="section-heading">🧂 Ingredients</h2>
+            <ul class="ingredients-list">${ingredientsList.join("")}</ul>
+            </div>
+            <div class="video-wrapper">
+            <h2 class="section-heading">🎥 Watch How It's Made</h2>
+            <iframe 
+                src="https://www.youtube.com/embed/${youtubeLink.split("v=")[1]}" 
+                frameborder="0" 
+                allowfullscreen 
+                title="Recipe Video">
+            </iframe>
+            </div>
+        </section>
+        `
+        : `
+        <section class="recipe-section">
+            <h2 class="section-heading">🧂 Ingredients</h2>
+            <ul class="ingredients-list">${ingredientsList.join("")}</ul>
+        </section>
+    `;
+
+    recipeContainer.innerHTML = `
+        <div class="recipe-card">
+            <h1 id="title">${recipe.strMeal}</h1>
+            <img id="meals" src="${recipe.strMealThumb}" alt="Photo of ${recipe.strMeal}">
+            ${youtubeEmbed}
+            <section class="recipe-section">
+            <h2 class="section-heading">👩‍🍳 Directions</h2>
+            <p class="instructions">${recipe.strInstructions}</p>
+            </section>
+        </div>
+    `;
+}
+
+// This function is to search and display recipe based on user input
 const foodSearch = (dish) => {
+    // fetch the latest recipes from this API
     fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${dish}`)
+        //after the fetch, convert the response to json format
         .then((response) => response.json())
+        // after the format conversion print out that data
         .then((data) => {
 
-// Declaring Variable For InnerText To Append To
-            section = document.querySelector("section")
-// How to Access API
-            let recipes = data.meals
-            let recipe = data.meals[0]
-            let mealTitle = data.meals[0].strMeal
-            let mealPic = data.meals[0].strMealThumb
-            let prep = data.meals[0].strYoutube
-            let instructions = data.meals[0].strInstructions
-        // let category = data.meals[0].strCategory
-    
+            // if no recipes are found, display a message for no results
+            if (!data.meals) {
+                recipeContainer.innerHTML = `<p id="no-results-found"> No Results Found. </p>`
+                // if no values, the recipes array should be empty
+                currentRecipes = []
+                // clear the shown recipes set
+                shownRecipes.clear();
+                return;
+            }
 
-// Looping Through Measurement Keys
-            const measure1 = data.meals[0].strMeasure1
-            const measure2 = data.meals[0].strMeasure2
-            const measure3 = data.meals[0].strMeasure3
-            const measure4 = data.meals[0].strMeasure4
-            const measure5 = data.meals[0].strMeasure5
-            const measure6 = data.meals[0].strMeasure6
-            const measure7 = data.meals[0].strMeasure7
-            const measure8 = data.meals[0].strMeasure8
-            const measure9 = data.meals[0].strMeasure9
-            const measure10 = data.meals[0].strMeasure10
-            const measure11 = data.meals[0].strMeasure11
-            const measure12 = data.meals[0].strMeasure12
-            const measure13 = data.meals[0].strMeasure13
-            const measure14 = data.meals[0].strMeasure14
-            const measure15 = data.meals[0].strMeasure15
-            const measure16 = data.meals[0].strMeasure16
-            const measure17 = data.meals[0].strMeasure17
-            const measure18 = data.meals[0].strMeasure18
-            const measure19 = data.meals[0].strMeasure19
-            const measure20 = data.meals[0].strMeasure20
+            // If the recipes are found, store them in the currentRecipes array
+            currentRecipes = data.meals
+            shownRecipes.clear(); // reset which recipes have been shown for new search
 
-// Looping Through Ingredient Keys
+            // Randomizing The API Data for a more fun experience
+            // this will give a random meal from the currentRecipes array
+            let randomRecipe;
+            do {
+                randomRecipe = currentRecipes[Math.floor(Math.random() * currentRecipes.length)];
+            } while (shownRecipes.has(randomRecipe.idMeal) && shownRecipes.size < currentRecipes.length);
 
-            const ing1 = data.meals[0].strIngredient1
-            const ing2 = data.meals[0].strIngredient2
-            const ing3 = data.meals[0].strIngredient3
-            const ing4 = data.meals[0].strIngredient4
-            const ing5 = data.meals[0].strIngredient5
-            const ing6 = data.meals[0].strIngredient6
-            const ing7 = data.meals[0].strIngredient7
-            const ing8 = data.meals[0].strIngredient8
-            const ing9 = data.meals[0].strIngredient9
-            const ing10 = data.meals[0].strIngredient10
-            const ing11 = data.meals[0].strIngredient11
-            const ing12 = data.meals[0].strIngredient12
-            const ing13 = data.meals[0].strIngredient13
-            const ing14 = data.meals[0].strIngredient14
-            const ing15 = data.meals[0].strIngredient15
-            const ing16 = data.meals[0].strIngredient16
-            const ing17 = data.meals[0].strIngredient17
-            const ing18 = data.meals[0].strIngredient18
-            const ing19 = data.meals[0].strIngredient19
-            const ing20 = data.meals[0].strIngredient20
-            
-            
-            section.innerHTML = `
-            <h1 id="title">${mealTitle}</h1>
-            <hr>
+            // Mark the selected recipe as shown
+            shownRecipes.add(randomRecipe.idMeal);
 
-            <img id="meals" src="${mealPic}">
-            <hr>
-            <h2>Ingredients</h2>
-            <ul><li>${measure1}  ${ing1} </li></ul>
-            <ul><li>${measure2}  ${ing2}</li></ul>
-            <ul><li>${measure3}  ${ing3}</li></ul>
-            <ul><li>${measure4}  ${ing4}</li></ul>
-            <ul><li>${measure5}  ${ing5}</li></ul>
-            <ul><li>${measure6}  ${ing6}</li></ul>
-            <ul><li>${measure7}  ${ing7}</li></ul>
-            <ul><li>${measure8}  ${ing8}</li></ul>
-            <ul><li>${measure9}  ${ing9}</li></ul>
-            <ul><li>${measure10}  ${ing10}</li></ul>
-            <ul><li>${measure11}  ${ing11}</li></ul>
-            <ul><li>${measure12}  ${ing12}</li></ul>
-            <ul><li>${measure13}  ${ing13}</li></ul>
-            <ul><li>${measure14}  ${ing14}</li></ul>
-            <ul><li>${measure15}  ${ing15}</li></ul>
-            <ul><li>${measure16}  ${ing16}</li></ul>
-            <ul><li>${measure17}  ${ing17}</li></ul>
-            <ul><li>${measure18}  ${ing18}</li></ul>
-            <ul><li>${measure19}  ${ing19}</li></ul>
-            <ul><li>${measure20}  ${ing20}</li></ul>
-
-            <hr>
-            <h2>Directions</h2>
-            <p>${instructions}</p>
-            `
-    })
-    .catch(error  => {
-        const errorP = document.createElement("p")
-        errorP.innerHTML = `No Results Found.`
-        section.innerHTML = " "
-        section.append(errorP)
-    })
-
-form.reset();
+            // Display the recipe using reusable function
+            displayRecipe(randomRecipe);
+        })
+        .catch(error  => {
+            //  If the API call fails, display an error message
+            recipeContainer.innerHTML =  "<p>Error fetching recipe</p>"
+        })
 }
 
-const footerDisplay = footer => {
-    footer.innerHTML = `
-        <ul>
-            <h4>About</h4>
-            <li id="footer-icons">
-                <a href="https://www.linkedin.com/in/saraibusiness/" title="LinkedIn"><img src="https://www.freepnglogos.com/uploads/linkedin-in-logo-png-1.png" width="50" alt="linkedin logo png"/></a>
-                <a href="https://github.com/Sarai-ii" title="Github"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50" alt="Github logo png"/></a>
-            </li>
-            <li id="footer-text"> 
-                © <a href="https://sarai-ii.github.io/My-Bio/">S.A.T Designs</a>--All Right Reserved 2023 
-            </li>
-        </ul>
-        `
-}
-
+// This handles the form submission and calls the food search function when a user searches for a dish
 form.addEventListener("submit", (event)=> {
-    event.preventDefault()
-    const dish = event.target[0].value
-    foodSearch(dish)
-    footerDisplay(footer)
-    
+    // this prevents the page from refreshing
+    event.preventDefault() 
+    // get the search term from the first input in the form
+    lastSearchTerm = event.target[0].value.trim()  // FIXED: assign to global lastSearchTerm
+    // edge case: for empty search, display a message
+    if(!lastSearchTerm) {
+        recipeContainer.innerHTML = '<p>Please enter a dish to search.</p>';
+        return;
+    }
+    // Call the function to search and display the recipe
+    foodSearch(lastSearchTerm)
 }); 
 
+// A Button that shuffles the recipe from the same search 
+shuffleButton.addEventListener("click", () => {
+    // If there's no previous search, show message
+    if (!lastSearchTerm || currentRecipes.length === 0) {
+        showMessage("Please search for a dish first before shuffling.");
+        return;
+    }
+    // Check if all recipes have been shown
+    if (shownRecipes.size === currentRecipes.length) {
+        showMessage("You've seen all the recipes for this !");
+        form.reset(); // Reset the form
+        // Disable the button and remove clicking effect
+        shuffleButton.classList.add("clickable");
+        shuffleButton.disabled = true; 
+        return;
+    }
 
+    // Pick a random recipe that hasn't been shown yet
+    let randomRecipe;
+    do {
+        randomRecipe = currentRecipes[Math.floor(Math.random() * currentRecipes.length)];
+    } while (shownRecipes.has(randomRecipe.idMeal));
 
-
-
-
+    shownRecipes.add(randomRecipe.idMeal);
+    displayRecipe(randomRecipe);
+});
