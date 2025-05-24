@@ -144,8 +144,6 @@ shuffleButton.addEventListener("click", () => {
         showMessage("You've seen all the recipes for this !");
         form.reset(); // Reset the form
         // Disable the button and remove clicking effect
-        shuffleButton.classList.add("clickable");
-        shuffleButton.disabled = true; 
         return;
     }
 

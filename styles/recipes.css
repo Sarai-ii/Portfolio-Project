@@ -1,6 +1,5 @@
                     /* WEBPAGE */
 body {
-    animation: gradientShift 20s ease infinite;
     background-color: #fffaf0;
     display: flex;
     flex-direction: column;
@@ -122,6 +121,7 @@ body {
 li {
     list-style: none;
 }
+
 /* Recipe Section */
 .video-ingredients-wrapper {
   display: flex;
@@ -132,6 +132,7 @@ li {
 .ingredients-container, .video-wrapper {
   flex: 1;
 }
+
 /* Embedded Video Design */
 .video-wrapper iframe {
   width: 100%;
@@ -139,13 +140,14 @@ li {
   border: none;
   border-radius: 8px;
 }
+
 /* Recipe Card */
-#meals{
+#meals {
     width: 30%;
     height: 30%;
 }
 
-/* FOOTER STYLING */
+                    /* FOOTER STYLING */
 #footer-container {
     background-color: #1a515c;
     color: #de6b48;
