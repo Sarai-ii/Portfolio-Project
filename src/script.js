@@ -4,11 +4,13 @@ const navContainer = document.querySelector(".nav-container")
 const featured2 = document.querySelector(".featured-section-2")
 
 
+
 fetch("https://themealdb.com/api/json/v1/1/random.php")
 // fetch data from api and convert to json format
 .then((response) => response.json())
 .then((data) => {
     featuredMeal(data)
+    console.log(data.meals[0].strMeal)
 
     // non-static resizing event listener
     window.addEventListener('resize', () => featuredMeal(data));
@@ -25,9 +27,9 @@ let featuredMeal = featured => {
         featuredSection.innerHTML = `
         <h2 class="featured-text">✨ Discover Today’s Featured Recipe ✨</h2>
         <div class=featured-section-2> 
-        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html">${title}</a> ↓
+        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">${title}</a> ↓
         </h2>
-        <a id="featured-img-link" href="/webpages/featured-meal.html">
+        <a id="featured-img-link" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">
         <img id="featured-img" src="${thumbnail}">
         </a>
         </div>
@@ -37,9 +39,9 @@ let featuredMeal = featured => {
         featuredSection.innerHTML = `
         <h2 class="featured-text">✨ Discover Today’s Featured Recipe ✨</h2>
         <div class=featured-section-2> 
-        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html">${title}</a> ↳
+        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">${title}</a> ↳
         </h2>
-        <a id="featured-img-link" href="/webpages/featured-meal.html">
+        <a id="featured-img-link" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">
         <img id="featured-img" src="${thumbnail}">
         </a>
         </div>
@@ -111,8 +113,9 @@ function renderCategory(sectionId, items, type) {
     section.appendChild(ul); // fallback just in case
     }
 }
+
 // checks sectionId, popular recipes array and type of api
-//creates a list of promises to return data soon
+// creates a list of promises to return data soon
 async function loadAndRenderPopular(sectionId, namesArray, type) {
     //check if api fetch is for cocktail or meals / runs fetch call
     const fetchFunction = type === "cocktail" ? fetchCocktailData : fetchMealData;

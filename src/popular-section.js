@@ -8,11 +8,11 @@ function displayRecipe(recipe) {
   // Dynamically build the ingredients list (only non-empty)
   const ingredientsList = [];
   for (let i = 1; i <= 20; i++) {
-      const ing = recipe[`strIngredient${i}`];
-      const meas = recipe[`strMeasure${i}`];
-      if (ing && ing.trim()) {
-          ingredientsList.push(`<li>${meas || ""} ${ing}</li>`);
-      }
+    const ing = recipe[`strIngredient${i}`];
+    const meas = recipe[`strMeasure${i}`];
+    if (ing && ing.trim()) {
+      ingredientsList.push(`<li>${meas || ""} ${ing}</li>`);
+    }
   }
   // If a Youtube link is available, embed it
   const youtubeLink = recipe.strYoutube;
@@ -90,7 +90,7 @@ function fetchMealData(recipeName) {
   //if there's no name in the link, stop
   if (!recipeName ) {
     popularSection.innerHTML = "<p>No meal selected.</p>";
-  } else if (recipeName ) {
+  } else{
     //fetch data from the MealDB API using the name
     fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${recipeName}`)
     .then((response) => response.json())
