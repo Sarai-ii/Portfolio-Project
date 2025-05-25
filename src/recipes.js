@@ -36,7 +36,6 @@ function displayRecipe(recipe) {
     }
     // If a Youtube link is available, embed it
     const youtubeLink = recipe.strYoutube;
-    console.log(youtubeLink);
     const youtubeEmbed = youtubeLink
     ? `
         <section class="recipe-section video-ingredients-wrapper">

@@ -4,11 +4,13 @@ const navContainer = document.querySelector(".nav-container")
 const featured2 = document.querySelector(".featured-section-2")
 
 
+
 fetch("https://themealdb.com/api/json/v1/1/random.php")
 // fetch data from api and convert to json format
 .then((response) => response.json())
 .then((data) => {
     featuredMeal(data)
+    console.log(data.meals[0].strMeal)
 
     // non-static resizing event listener
     window.addEventListener('resize', () => featuredMeal(data));
@@ -25,9 +27,9 @@ let featuredMeal = featured => {
         featuredSection.innerHTML = `
         <h2 class="featured-text">✨ Discover Today’s Featured Recipe ✨</h2>
         <div class=featured-section-2> 
-        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html">${title}</a> ↓
+        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">${title}</a> ↓
         </h2>
-        <a id="featured-img-link" href="/webpages/featured-meal.html">
+        <a id="featured-img-link" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">
         <img id="featured-img" src="${thumbnail}">
         </a>
         </div>
@@ -37,9 +39,9 @@ let featuredMeal = featured => {
         featuredSection.innerHTML = `
         <h2 class="featured-text">✨ Discover Today’s Featured Recipe ✨</h2>
         <div class=featured-section-2> 
-        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html">${title}</a> ↳
+        <h2 class="featured-title">Craving Something New? Try <a id="meal-name" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">${title}</a> ↳
         </h2>
-        <a id="featured-img-link" href="/webpages/featured-meal.html">
+        <a id="featured-img-link" href="/webpages/featured-meal.html?name=${encodeURIComponent(title)}">
         <img id="featured-img" src="${thumbnail}">
         </a>
         </div>
@@ -69,7 +71,7 @@ async function fetchCocktailData(drinkName) {
 }
 
 // The content to dynamically render on popular-meals.html 
-function renderCategory(sectionId, items) {
+function renderCategory(sectionId, items, type) {
     // Get the target id section (desserts, fun-app, top-cocktails)
     const section = document.getElementById(sectionId); 
     // Create a <ul> to hold the recipes or items
@@ -82,8 +84,9 @@ function renderCategory(sectionId, items) {
         li.classList.add("recipe-card");
         // Wrap in an <a> tag         
         const a = document.createElement('a');  
-        //links to site that uses URL parameters to show correct recipe          
-        a.href = `/webpages/popular-recipe.html?name=${encodeURIComponent(item.name)}`;
+        //links to site that uses URL parameters to show correct recipe
+        //added type parameter to dynamically toggle drink vs meal api on next page        
+        a.href = `/webpages/popular-recipe.html?name=${encodeURIComponent(item.name)}&type=${type}`;
         a.classList.add("recipe-link");
 
         // Create <img> for meal image
@@ -110,8 +113,9 @@ function renderCategory(sectionId, items) {
     section.appendChild(ul); // fallback just in case
     }
 }
+
 // checks sectionId, popular recipes array and type of api
-//creates a list of promises to return data soon
+// creates a list of promises to return data soon
 async function loadAndRenderPopular(sectionId, namesArray, type) {
     //check if api fetch is for cocktail or meals / runs fetch call
     const fetchFunction = type === "cocktail" ? fetchCocktailData : fetchMealData;
@@ -136,10 +140,10 @@ async function loadAndRenderPopular(sectionId, namesArray, type) {
     //remove null values if fetch failed
     const validItems = results.filter(item => item !== null);
     //call render function to show on page
-    renderCategory(sectionId, validItems);
+    renderCategory(sectionId, validItems, type);
 }
 
-//waits until cwebpage has loaded before running code
+//waits until webpage has loaded before running code
 document.addEventListener("DOMContentLoaded", () => {
   loadAndRenderPopular("desserts", popularItems.desserts, "meal");
   loadAndRenderPopular("fun-app", popularItems.meals, "meal");

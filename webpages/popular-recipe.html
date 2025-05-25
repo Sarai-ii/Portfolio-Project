@@ -3,14 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./styles/style.css">
-    <script defer src="./src/popular-section.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,900;1,100;1,300;1,500;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/popular.css">
+    <script defer src="../src/popular-section.js"></script>
     <title>Popular Recipes</title>
 </head>
 <body>
-    <main class="main-container">
-        <h1 class="section-title">Recipe Details</h1>
-        <section id="recipe-details"></section>
+    <main class="page-container">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <h1 id="heading"><a href="../index.html">WHAT'S DISH</a></h1>
+            </div>
+            <ul class="nav-list">
+                <li id="recipes"><a href="../recipes.html">Recipes</a></li>
+                <li id="country"><a href="../country.html">Around The World</a></li>
+                <li id="cocktails"><a href="../cocktails.html">Cocktails</a></li>
+            </ul>
+        </nav>
+        <div class="main-container">
+            <section class="popular-recipe-section"></section>
+        </div>
+        <footer id="footer-container">
+            <h4 id="footer-heading"><a href="https://saraithomasv1.netlify.app">Created By: Sarai Thomas</a></h4>
+            <ul class="footer-list">
+                <li id="footer-icons">
+                    <a href="https://www.linkedin.com/in/saraibusiness/" title="LinkedIn"><img src="https://www.freepnglogos.com/uploads/linkedin-in-logo-png-1.png" width="50" alt="linkedin logo png"/></a>
+                    <a href="https://github.com/Sarai-ii" title="Github"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50" alt="Github logo png"/></a>
+                    <a href="./about-me.html">About Me</a> 
+                </li>
+                <li id="footer-text"> 
+                    © <a href="https://saraithomasv1.netlify.app/#projects">S.A.T Designs</a>--All Right Reserved 2023 
+                </li>
+            </ul>
+        </footer>
     </main>
 </body>
 </html>
