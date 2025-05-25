@@ -1,15 +1,14 @@
 // Declaring Variable For Elements On The webpage
 const form = document.querySelector("form")
-const footer = document.getElementById("footer-container")
 const recipeContainer = document.querySelector("#cocktail-ideas")
 const shuffleButton = document.querySelector("#random-recipe-shuffle")
 const messageArea = document.querySelector("#message-area")
 
 // Variable to store the last search term to shuffle based on the last search
 let lastSearchTerm = ""
-// stores current recipes array globally
+// stores current recipes globally
 let currentRecipes = []
-
+//ensures unique recipes no duplicates, once shown -> added to set
 let shownRecipes = new Set();
 
 // Utility: Show a temporary in-page message
@@ -36,7 +35,6 @@ function displayCocktailRecipe(recipe) {
         <div class="recipe-card">
             <h1 id="title">${recipe.strDrink}</h1>
             <img id="meals" src="${recipe.strDrinkThumb}" alt="Photo of ${recipe.strDrink}">
-            ${youtubeEmbed}
             <section class="recipe-section">
                 <h2 class="section-heading">🧂 Ingredients</h2>
                 ul class="ingredients-list">${ingredientsList.join("")}</ul>
@@ -57,9 +55,6 @@ const cocktailSearch = (cocktail) => {
     
         // Declaring an easier pathway w/ variables
         let drinkArr = data.drinks
-        let drink = data.drinks[0].strDrink
-        let drinkPic = data.drinks[0].strDrinkThumb
-        let instructions = data.drinks[0].strInstructions
 
         if (!drinkArr){
             recipeContainer.innerHTML = `<p id="no-results-found"> No Results Found.</p>`
