@@ -437,4 +437,11 @@ footer a:hover {
     .featured-text {
         font-size: 1.2rem;
     }
+
+    #featured-img-link {
+        max-width: 80%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
 }

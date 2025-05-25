@@ -69,7 +69,7 @@ async function fetchCocktailData(drinkName) {
 }
 
 // The content to dynamically render on popular-meals.html 
-function renderCategory(sectionId, items) {
+function renderCategory(sectionId, items, type) {
     // Get the target id section (desserts, fun-app, top-cocktails)
     const section = document.getElementById(sectionId); 
     // Create a <ul> to hold the recipes or items
@@ -82,8 +82,9 @@ function renderCategory(sectionId, items) {
         li.classList.add("recipe-card");
         // Wrap in an <a> tag         
         const a = document.createElement('a');  
-        //links to site that uses URL parameters to show correct recipe          
-        a.href = `/webpages/popular-recipe.html?name=${encodeURIComponent(item.name)}`;
+        //links to site that uses URL parameters to show correct recipe
+        //added type parameter to dynamically toggle drink vs meal api on next page        
+        a.href = `/webpages/popular-recipe.html?name=${encodeURIComponent(item.name)}&type=${type}`;
         a.classList.add("recipe-link");
 
         // Create <img> for meal image
@@ -136,10 +137,10 @@ async function loadAndRenderPopular(sectionId, namesArray, type) {
     //remove null values if fetch failed
     const validItems = results.filter(item => item !== null);
     //call render function to show on page
-    renderCategory(sectionId, validItems);
+    renderCategory(sectionId, validItems, type);
 }
 
-//waits until cwebpage has loaded before running code
+//waits until webpage has loaded before running code
 document.addEventListener("DOMContentLoaded", () => {
   loadAndRenderPopular("desserts", popularItems.desserts, "meal");
   loadAndRenderPopular("fun-app", popularItems.meals, "meal");
