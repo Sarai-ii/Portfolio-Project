@@ -23,13 +23,15 @@ body {
 }
 
 .hero-banner {
-    height: 60vh;
+    height: auto;
     overflow: hidden;
     position: relative;
     width: 100%;
+    
 }
 
 #hero-img {
+    aspect-ratio: 16 / 8;
     display: block;
     height: 100%;
     object-fit: cover;
@@ -57,7 +59,7 @@ body {
     text-shadow:
       1px 1px 0 #de6b48,
       2px 2px 0 #b03f24,
-      3px 3px 3px rgba(0, 0, 0, 0.3); /* subtle black blur */
+      3px 3px 3px rgba(0, 0, 0, 0.3);
 }
 
 .nav-list {
@@ -65,8 +67,8 @@ body {
     justify-content: center;
     gap: 2rem;
     list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
+    margin: 20px;
+    /* padding: 20px; */
 }
 
 .nav-list a {
@@ -132,32 +134,81 @@ body {
 }
 
                         /* SUB SECTION */
-.sub-section {
+                        
+.sub-container {
+    background-color: #f8f8f8;
+    padding: 40px 20px;
+}
+
+.popular-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    overflow: hidden;
+    gap: 60px;
 }
     
-#easter a > img, 
-#fun-app a > img, 
-#top-cocktails a > img, 
-#chesapeake {
-    max-height: 200px;
-    max-width: 200px;
-}
-
-.main-text,
 #sub-heading {
-    background-color: rgb(160, 235, 235);
-    color: black;
-    text-align: center; 
-    margin: 0 0 0 0 
-}
-.section-text {
-    /* text-align: center; */
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #222;
 }
 
-li {
+/* Individual category sections (Desserts, Fun App, etc.) */
+.popular-section section {
+    /* width: 100%; */
+}
+
+/* Category titles (e.g. Desserts, Fun Appetizers) */
+.popular-section section > h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+}
+
+/* Recipe list styling from earlier (add this if not yet) */
+.recipe-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 0;
     list-style: none;
+    justify-content: center;
+}
+
+.recipe-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin: 20px;
+    transition: transform 0.2s ease;
+    width: 200px;
+}
+
+.recipe-card:hover {
+    transform: scale(1.03);
+}
+
+.recipe-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+}
+
+.recipe-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.recipe-name {
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px;
+    color: #333;
 }
 
                      /* FOOTER STYLING */
@@ -215,35 +266,175 @@ footer a:hover {
 }
 
                         /* MEDIA QUERIES */
-@media screen and (max-width: 700){
-    /* Nav */
-    h1 {
-        position: relative ;
-        top: -500px;
-    }
-    #hero-banner{
-        margin: 0;
-        height: 300px;
-    }
-    #hero-img {
-        max-height: 300px;
-        width: 100%;
-        object-fit: contain;
 
+@media screen and (min-width: 1120px){
+     /* Nav */
+     #hero-img {
+        height: 400px;
+    }
+
+    /* Featured */
+    .featured-section {
+        margin: 30px 30px 30px;
+    }
+
+    .featured-section-2 {
+        text-align: center;
+    }
+
+    .featured-title {
+        padding: 10px 30px;
+    }
+
+    .featured-title,
+    #meal-name {
+        font-size: 3rem;
+    }
+
+     /* Sub */
+     .popular-section {
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+    }
+        
+    #sub-heading {
+        font-size: 2rem;
+    }
+
+    .recipe-card {
+        width: 70%;
+
+    }
+
+    .recipe-image {
+        height: 300px;
+        object-fit: cover;
+        width: 100%; 
+    }
+} 
+
+@media screen and (max-width: 900px){
+    /* Nav */
+    /* Featured */
+
+    /* Sub */
+
+    .popular-section {
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+    }
+    .popular-section ul {
+        padding: 0;
+    }
+        
+    #sub-heading {
+        font-size: 2rem;
+    }
+
+    .recipe-card {
+        max-width: 250px;
+    }
+
+    .recipe-image {
+        max-height: 300px;
+        object-fit: cover;
+        width: 100%; 
+    }
+
+}
+
+@media screen and (max-width: 765px){
+    /* Nav */
+
+    .hero-banner {
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+
+    #hero-img {
+        margin: 0;
+        object-fit: cover;
+        width: 100%;
+    }
+
+    #heading {
+        font-size: 2rem;
+    }
+
+    /* Featured */
+
+    .featured-section-2 {
+        padding: 20px;
     }
 
     /* Sub */
 
-    #easter img, #fun-app img {
-        list-style: none;
-        height: 200px;
-        width: 200px;
+    .popular-section {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+    }
+    .popular-section ul {
+        padding: 0;
+    }
+        
+    #sub-heading {
+        font-size: 2rem;
     }
 
-    #top-cocktails img {
-        list-style: none;
-        height: 191px;
-        width: 200px;
+    .recipe-container {
+        max-width: 400px;
+    }
+    .recipe-card {
+        width: 100%;
     }
 
+    .recipe-image {
+        height: 100%;
+        object-fit: cover;
+        width: 100%; 
+    }
+}
+@media screen and (max-width: 535px){
+    /* Nav */
+    #heading {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    .nav-list {
+        display: flex;
+        gap: 10px;
+        margin: 5px;
+        padding: 5px;
+        text-align: center;
+    }
+
+    .nav-list a {
+        font-size: 12px;
+    }
+
+    /* Featured */
+    .featured-section{
+        align-items: center;
+    }
+
+    .featured-section-2 {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .featured-title, 
+    #meal-name {
+        font-size: 1rem;
+    }
+
+    .featured-text {
+        font-size: 1.2rem;
+    }
 }
