@@ -1,103 +1,134 @@
-window.onload = () => {
-    fetch("https://thecocktaildb.com/api/json/v1/1/random.php")
-        .then(response => response.json())
-        .then(data => {
+// Declaring Variable For Elements On The webpage
+const form = document.querySelector("form")
+const footer = document.getElementById("footer-container")
+const recipeContainer = document.querySelector("#cocktail-ideas")
+const shuffleButton = document.querySelector("#random-recipe-shuffle")
+const messageArea = document.querySelector("#message-area")
 
-// Declaring an easier pathway w/ variables
-            let drinkArr = data.drinks
-            let drink = data.drinks[0].strDrink
-            let drinkPic = data.drinks[0].strDrinkThumb
-            let instructions = data.drinks[0].strInstructions
-//Creating/selecting necessary elements
-            const ordered = document.createElement("ol")
-            const unOrdered = document.createElement("ul")
-            const main = document.querySelector("main")
-            main.append(ordered, unOrdered)
+// Variable to store the last search term to shuffle based on the last search
+let lastSearchTerm = ""
+// stores current recipes array globally
+let currentRecipes = []
 
+let shownRecipes = new Set();
 
-// Individually pulling measurements
-
-            const measure1 = drinkArr[0].strMeasure1
-            const measure2 = drinkArr[0].strMeasure2
-            const measure3 = drinkArr[0].strMeasure3
-            const measure4 = drinkArr[0].strMeasure4
-            const measure5 = drinkArr[0].strMeasure5
-            const measure6 = drinkArr[0].strMeasure6
-            const measure7 = drinkArr[0].strMeasure7
-            const measure8 = drinkArr[0].strMeasure8
-            const measure9 = drinkArr[0].strMeasure9
-            const measure10 = drinkArr[0].strMeasure10
-            const measure11 = drinkArr[0].strMeasure11
-            const measure12 = drinkArr[0].strMeasure12
-            const measure13 = drinkArr[0].strMeasure13
-            const measure14 = drinkArr[0].strMeasure14
-            const measure15 = drinkArr[0].strMeasure15
-            const measure16 = drinkArr[0].strMeasure16
-            const measure17 = drinkArr[0].strMeasure17
-            const measure18 = drinkArr[0].strMeasure18
-            const measure19 = drinkArr[0].strMeasure19
-            const measure20 = drinkArr[0].strMeasure20
-
-//Individually listing ingredients
-
-            const ing1 = drinkArr[0].strIngredient1
-            const ing2 = drinkArr[0].strIngredient2
-            const ing3 = drinkArr[0].strIngredient3
-            const ing4 = drinkArr[0].strIngredient4
-            const ing5 = drinkArr[0].strIngredient5
-            const ing6 = drinkArr[0].strIngredient6
-            const ing7 = drinkArr[0].strIngredient7
-            const ing8 = drinkArr[0].strIngredient8
-            const ing9 = drinkArr[0].strIngredient9
-            const ing10 = drinkArr[0].strIngredient10
-            const ing11 = drinkArr[0].strIngredient11
-            const ing12 = drinkArr[0].strIngredient12
-            const ing13 = drinkArr[0].strIngredient13
-            const ing14 = drinkArr[0].strIngredient14
-            const ing15 = drinkArr[0].strIngredient15
-            const ing16 = drinkArr[0].strIngredient16
-            const ing17 = drinkArr[0].strIngredient17
-            const ing18 = drinkArr[0].strIngredient18
-            const ing19 = drinkArr[0].strIngredient19
-            const ing20 = drinkArr[0].strIngredient20
-            
-
-//Looping Through Ingredients Keys 
-            // for (const key in recipe){
-            //     if (key.includes("strIngredient") && recipe[key]!== null){
-            //         const ingList = document.createElement("li")
-            //         ingList.classList.add("on-load-ing")
-            //         ingList.innerText = recipe[key]
-            //         ordered.append(ingList)
-            //     }
-            //     if (key.includes("strMeasure") && recipe[key]!== undefined){
-            //         const metric = document.createElement("li")
-            //         metric.classList.add("measurements")
-            //         metric.innerText = recipe[key]
-            //         unOrdered.append(metric)
-            //     }
-            // }
-
-            main.innerHTML = `
-            <h1 id="title">${drink}</h1>
-
-            <img id="drinks" src="${drinkPic}">
-
-            <h2>Ingredients</h2>
-
-            <ul><li>${measure1}  ${ing1} </li></ul>
-            <ul><li>${measure2}  ${ing2}</li></ul>
-            <ul><li>${measure3}  ${ing3}</li></ul>
-            <ul><li>${measure4}  ${ing4}</li></ul>
-            <ul><li>${measure5}  ${ing5}</li></ul>
-            <ul><li>${measure6}  ${ing6}</li></ul>
-            <ul><li>${measure7}  ${ing7}</li></ul>
-            <ul><li>${measure8}  ${ing8}</li></ul>
-            <ul><li>${measure9}  ${ing9}</li></ul>
-            <ul><li>${measure10} ${ing10}</li></ul>
-            <h2>Directions</h2>
-            <p>${instructions}</p> `
-        })
-        .catch(error => {
-            console.log(error)})
+// Utility: Show a temporary in-page message
+function showMessage(message) {
+    messageArea.innerHTML = `<p>${message}</p>`; // Display the message
+    setTimeout(() => messageArea.innerHTML = "", 4000); // Clear it after 4 sec
 }
+
+//dynamically fetching measurements and ingredients
+function displayCocktailRecipe(recipe) {
+    const ingredientsList = [];
+    //iterating through numbers 1 to 20
+    for(let i = 1; i <= 20; i++){
+        // data.drinks[index] = recipe - matching ing to meas
+        const ing = recipe[`strIngredient${i}`]
+        const meas = recipe[`strMeasure${i}`]
+        // if value[i] is null fail and stop iteration
+        if(ing && ing.trim()){
+            ingredientsList.push(`<li>${meas || ""} ${ing}</li>`);
+        }
+    }
+
+    recipeContainer.innerHTML = `
+        <div class="recipe-card">
+            <h1 id="title">${recipe.strDrink}</h1>
+            <img id="meals" src="${recipe.strDrinkThumb}" alt="Photo of ${recipe.strDrink}">
+            ${youtubeEmbed}
+            <section class="recipe-section">
+                <h2 class="section-heading">🧂 Ingredients</h2>
+                ul class="ingredients-list">${ingredientsList.join("")}</ul>
+                <h2 class="section-heading">👩‍🍳 Directions</h2>
+                <p class="instructions">${recipe.strInstructions}</p>
+            </section>
+        </div>
+    `;
+
+}
+
+const cocktailSearch = (cocktail) => {
+    fetch(`https://thecocktaildb.com/api/json/v1/1/search.php?s=${cocktail}`)
+    //convert data to json format
+    .then(response => response.json())
+    //print out data
+    .then(data => {
+    
+        // Declaring an easier pathway w/ variables
+        let drinkArr = data.drinks
+        let drink = data.drinks[0].strDrink
+        let drinkPic = data.drinks[0].strDrinkThumb
+        let instructions = data.drinks[0].strInstructions
+
+        if (!drinkArr){
+            recipeContainer.innerHTML = `<p id="no-results-found"> No Results Found.</p>`
+
+            // if no values, the recipes array should be empty
+            currentRecipes = []
+            // clear the shown recipes set
+            shownRecipes.clear();
+            return;
+        }
+
+        // If the recipes are found, store them in the currentRecipes array
+        currentRecipes = drinkArr
+        shownRecipes.clear(); // reset which recipes have been shown for new search
+
+        // Randomizing The API Data for a more fun experience
+        // this will give a random meal from the currentRecipes array
+        let randomRecipe;
+        do {
+            randomRecipe = currentRecipes[Math.floor(Math.random() * currentRecipes.length)];
+        } while (shownRecipes.has(randomRecipe.idDrink) && shownRecipes.size < currentRecipes.length);
+
+        // Mark the selected recipe as shown
+        shownRecipes.add(randomRecipe.idDrink);
+
+        // Display the recipe using reusable function
+        displayCocktailRecipe(randomRecipe);
+    })
+    .catch(error  => {
+        //  If the API call fails, display an error message
+        recipeContainer.innerHTML = "<p>Error fetching recipe</p>"
+    })
+}
+
+// This handles the form submission and calls the cocktail search function when a user searches
+form.addEventListener("submit", (event)=> {
+    // this prevents the page from refreshing
+    event.preventDefault() 
+    // get the search term from the first input in the form
+    lastSearchTerm = event.target[0].value.trim()  // FIXED: assign to global lastSearchTerm
+    // edge case: for empty search, display a message
+    if(!lastSearchTerm) {
+        recipeContainer.innerHTML = '<p>Please enter a cocktail to search.</p>';
+        return;
+    }
+    // Call the function to search and display the recipe
+    cocktailSearch(lastSearchTerm)
+}); 
+
+// A Button that shuffles the recipe from the same search 
+shuffleButton.addEventListener("click", () => {
+    // If there's no previous search, show message
+    if (!lastSearchTerm || currentRecipes.length === 0) {
+        showMessage("Please search for a cocktail first before shuffling.");
+        return;
+    }
+    // Check if all recipes have been shown
+    if (shownRecipes.size === currentRecipes.length) {
+        showMessage("You've seen all the recipes for this category!");
+        form.reset(); // Reset the form
+        // Disable the button and remove clicking effect
+        return;
+    }
+    // Pick a random recipe that hasn't been shown yet
+    let randomRecipe;
+    do {
+        randomRecipe = currentRecipes[Math.floor(Math.random() * currentRecipes.length)];
+    } while (shownRecipes.has(randomRecipe.idDrink));
+
+    shownRecipes.add(randomRecipe.idDrink);
+    displayCocktailRecipe(randomRecipe);
+});
