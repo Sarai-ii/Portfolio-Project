@@ -90,12 +90,13 @@ body {
 
 /* Input Field */
 #search-bar{
-    flex: 1 1 300px;
-    padding: .5rem 1rem;
     border: 1px solid #999;
     border-radius: 4px;
-    font-size: 1rem;
     box-sizing: border-box;
+    flex: 1 1 300px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    padding: .5rem 1rem;
 }
 
 /* Button Styling */
@@ -136,6 +137,9 @@ li {
 .ingredients-container, .video-wrapper {
     flex: 1;
 }
+.ingredients-container li {
+    padding: 8px;
+}
 
 /* Embedded Video Design */
 .video-wrapper iframe {
@@ -150,7 +154,8 @@ li {
     height: 30%;
 }
 
-#title {
+#title, 
+#no-results-found {
     font-size: 1.8rem;
     color: #de6b48;
     margin-bottom: 1rem;

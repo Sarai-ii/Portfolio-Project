@@ -1,0 +1,328 @@
+                    /* WEBPAGE */
+body {
+    background-color: #fffaf0;
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+.page-container {
+    flex: 1;
+}
+
+                    /* NAVIGATION BAR */
+.nav-container {
+    align-items: center;
+    background-color: #fffaf0;
+    border-bottom: 2px solid #de6b48;
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-banner {
+    height: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    
+}
+
+#hero-img {
+    aspect-ratio: 16 / 8;
+    display: block;
+    height: 100%;
+    max-height: 600px;
+    object-fit: cover;
+    width: 100%;
+}
+
+#heading {
+    background-color: #ffffff72;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+    font-size: 3rem;
+    left: 50%;
+    margin: 0;
+    padding: 20px 30px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+#heading a {
+    color: #1a515c;
+    font-family: 'Titan One', cursive;
+    text-decoration: none;
+    text-shadow:
+      1px 1px 0 #de6b48,
+      2px 2px 0 #b03f24,
+      3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+.nav-list {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    margin: 20px;
+    /* padding: 20px; */
+}
+
+.nav-list a {
+    font-family: 'Raleway', sans-serif;
+    color: #1a515c;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-list a:hover {
+    color: #de6b48;
+    text-decoration: underline;
+}
+
+                    /* MAIN CONTAINTER */
+.main-container {
+    padding: 5px;
+    text-align: center;
+}
+
+/* Heading Styling */
+#search-heading {
+    color: #de6b48;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* Subtext/Overview Styling */
+#main-overview {
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.ingredients-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ingredients-list {
+    padding: 0;
+}
+
+/* Search Bar Form */
+#search-form-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* Input Field */
+#search-bar {
+    flex: 1 1 200px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    border: 1px solid #999;
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: .5rem 1rem;
+}
+
+/* Button Styling */
+#recipe-submit,
+#random-recipe-shuffle {
+    border: none;
+    border-radius: 4px;
+    background-color: #de6b48;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.5rem 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+#recipe-submit:hover,
+#random-recipe-shuffle:hover {
+    background-color: #c25538;
+}
+
+
+li {
+    list-style: none;
+}
+
+.directions-section{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.instructions {
+    text-align: center;
+    font-size: 1rem;
+    white-space: pre-line;
+    width: 70%;
+}
+
+#drinks {
+    height: 40%;
+    width: 40%;
+}
+
+#title,
+#no-results-found {
+    font-size: 1.8rem;
+    color: #de6b48;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+                    /* FOOTER STYLING */
+#footer-container {
+    background-color: #1a515c;
+    color: #de6b48;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-top: 2px solid #de6b48;
+    margin-top: 3rem;
+}
+
+#footer-heading {
+    font-weight: 500;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #de6b48;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#footer-icons a {
+    margin: 0 0.5rem;
+}
+
+#footer-icons img {
+    width: 32px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+#footer-icons img:hover {
+    transform: scale(1.1);
+}
+
+#footer-text {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+footer a {
+    color: #de6b48;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+/* MEDIA QUERIES */
+/* Wider Screen */
+@media screen and (min-width: 800px) {
+    /* Main */
+    #widescreen-styling {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+        align-content: center;
+    }
+    .recipe-section {
+        width: 50%;
+        margin: 16px;
+    }
+    #drinks{
+        width: 50%;
+    }
+}
+/* Wide & Short Screens (Laptops) */
+@media screen and (min-width: 1000px) and (max-height: 750px){
+
+    /* Nav */
+    
+    .hero-banner {
+        max-height: 400px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+    }
+    
+    #hero-img {
+        margin: 0;
+        object-fit: cover;
+    }
+    
+    #heading {
+        font-size: 3rem;
+    }
+}
+@media screen and (max-width: 757px){
+ /* Nav */
+    #heading {
+        font-size: 2rem;
+        padding: 10px;
+    }
+    .nav-list {
+        display: flex;
+        gap: 15px;
+        margin: 5px;
+        padding: 10px;
+        text-align: center;
+    }
+    .nav-list a {
+        font-size: 12px;
+    }
+
+}
+@media screen and (max-width: 467px) {
+    #heading {
+        font-size: 1.3rem;
+    }
+}
+/* Mobile Phone */
+@media screen and (max-width: 360px) {
+    #search-heading {
+        font-size: 1.2rem;
+    }
+    #search-bar{
+        width: 30%;
+    }
+    #drinks {
+        height: 100%;
+        width: 100%;
+    }
+}
+/* Mobile Phone */
+@media screen and (max-width: 195px) {
+    #search-heading {
+        font-size: 1.2rem;
+    }
+   .nav-list{
+    display: flex;
+    flex-direction: row;
+    gap: 2px;
+    padding: 0;
+   }
+}
