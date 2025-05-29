@@ -10,24 +10,37 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,900;1,100;1,300;1,500;1,900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./styles/recipes.css">
-    <script defer src="./src/cocktails.js"></script>
+    <link rel="stylesheet" href="../styles/cocktail.css">
+    <script defer src="../src/cocktails.js"></script>
     <title>Cocktails</title>
 </head>
 <body>
     <main class="page-container">
         <nav class="nav-container">
             <div class="hero-banner">
-                <img id="hero-img"src="./images/homepageBanner.png" alt="Homepage Banner of natural light shimmering through the window onto the counter with tomatoes, garlic, herbs, avocado and a pan with an open recipe book on it.">
+                <!-- <img id="hero-img"src="../images/4.png" alt="Cocktails banner image of drinks in glass on a bar counter."> -->
+                <img id="hero-img"src="../images/5.png" alt="Cocktails banner image of drinks in glass on a bar counter.">
                 <h1 id="heading"><a href="../index.html">WHAT'S DISH</a></h1> 
             </div>
             <ul class="nav-list">
                 <li id="recipes"><a href="./recipes.html">Recipes</a></li>
                 <li id="country"><a href="./country.html">Around The World</a></li>
-                <li id="cocktails"><a href="./recipes.html">Cocktails</a></li>
+                <li id="cocktails"><a href="./cocktails.html">Cocktails</a></li>
             </ul>
         </nav> 
         <main class ="main-container">
+            <h3 id="search-heading">Cocktail Search & Randomizer 
+                <br>Shake Things Up with a New Drink</h3>
+            <p id="main-overview">
+                Discover your next favorite drink with the Cocktail Randomizer. Just enter a spirit — like “vodka,” “rum,” or “tequila” — or a cocktail name such as “Margarita” or “Old Fashioned,” and let the generator serve up a refreshing surprise. Whether you're hosting a party or unwinding solo, a great drink is only a click away. Already searched? Hit the <strong>Shuffle Recipe</strong> button for a spontaneous new sip every time.
+            </p>
+            <form id="search-form-container">
+                <input type="text" id="search-bar" placeholder="What's your drink mood?" required>
+                <input type="submit" id="recipe-submit">
+                <button id="random-recipe-shuffle" type="button"> Shuffle Recipe</button>
+            </form>
+            <div id="message-area"></div>
+            <div id="cocktail-ideas"></div>
         </main>
         <footer id="footer-container">
             <h4 id="footer-heading"><a href="https://saraithomasv1.netlify.app">Created By: Sarai Thomas</a></h4>

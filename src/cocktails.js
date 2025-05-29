@@ -34,16 +34,21 @@ function displayCocktailRecipe(recipe) {
     recipeContainer.innerHTML = `
         <div class="recipe-card">
             <h1 id="title">${recipe.strDrink}</h1>
-            <img id="meals" src="${recipe.strDrinkThumb}" alt="Photo of ${recipe.strDrink}">
-            <section class="recipe-section">
-                <h2 class="section-heading">🧂 Ingredients</h2>
-                ul class="ingredients-list">${ingredientsList.join("")}</ul>
-                <h2 class="section-heading">👩‍🍳 Directions</h2>
-                <p class="instructions">${recipe.strInstructions}</p>
-            </section>
+            <div id= "widescreen-styling">
+                <img id="drinks" src="${recipe.strDrinkThumb}" alt="Photo of ${recipe.strDrink}">
+                <section class="recipe-section">
+                    <div class="ingredients-section">
+                        <h2 class="section-heading">🧂 Ingredients</h2>
+                        <ul class="ingredients-list">${ingredientsList.join("")}</ul>
+                    </div>
+                    <div class="directions-section">
+                        <h2 class="section-heading">📝 Directions</h2>
+                        <p class="instructions">${recipe.strInstructions}</p>
+                    </div>
+                </section>
+            </div>
         </div>
     `;
-
 }
 
 const cocktailSearch = (cocktail) => {
@@ -94,7 +99,8 @@ form.addEventListener("submit", (event)=> {
     // this prevents the page from refreshing
     event.preventDefault() 
     // get the search term from the first input in the form
-    lastSearchTerm = event.target[0].value.trim()  // FIXED: assign to global lastSearchTerm
+    // FIXED: assign to global lastSearchTerm
+    lastSearchTerm = event.target[0].value.trim()  
     // edge case: for empty search, display a message
     if(!lastSearchTerm) {
         recipeContainer.innerHTML = '<p>Please enter a cocktail to search.</p>';

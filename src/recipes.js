@@ -78,42 +78,41 @@ function displayRecipe(recipe) {
 const foodSearch = (dish) => {
     // fetch the latest recipes from this API
     fetch(`https://themealdb.com/api/json/v1/1/search.php?s=${dish}`)
-        //after the fetch, convert the response to json format
-        .then((response) => response.json())
-        // after the format conversion print out that data
-        .then((data) => {
+    //after the fetch, convert the response to json format
+    .then((response) => response.json())
+    // after the format conversion print out that data
+    .then((data) => {
+        // if no recipes are found, display a message for no results
+        if (!data.meals) {
+            recipeContainer.innerHTML = `<p id="no-results-found"> No Results Found. </p>`
+            // if no values, the recipes array should be empty
+            currentRecipes = []
+            // clear the shown recipes set
+            shownRecipes.clear();
+            return;
+        }
 
-            // if no recipes are found, display a message for no results
-            if (!data.meals) {
-                recipeContainer.innerHTML = `<p id="no-results-found"> No Results Found. </p>`
-                // if no values, the recipes array should be empty
-                currentRecipes = []
-                // clear the shown recipes set
-                shownRecipes.clear();
-                return;
-            }
+        // If the recipes are found, store them in the currentRecipes array
+        currentRecipes = data.meals
+        shownRecipes.clear(); // reset which recipes have been shown for new search
 
-            // If the recipes are found, store them in the currentRecipes array
-            currentRecipes = data.meals
-            shownRecipes.clear(); // reset which recipes have been shown for new search
+        // Randomizing The API Data for a more fun experience
+        // this will give a random meal from the currentRecipes array
+        let randomRecipe;
+        do {
+            randomRecipe = currentRecipes[Math.floor(Math.random() * currentRecipes.length)];
+        } while (shownRecipes.has(randomRecipe.idMeal) && shownRecipes.size < currentRecipes.length);
 
-            // Randomizing The API Data for a more fun experience
-            // this will give a random meal from the currentRecipes array
-            let randomRecipe;
-            do {
-                randomRecipe = currentRecipes[Math.floor(Math.random() * currentRecipes.length)];
-            } while (shownRecipes.has(randomRecipe.idMeal) && shownRecipes.size < currentRecipes.length);
+        // Mark the selected recipe as shown
+        shownRecipes.add(randomRecipe.idMeal);
 
-            // Mark the selected recipe as shown
-            shownRecipes.add(randomRecipe.idMeal);
-
-            // Display the recipe using reusable function
-            displayRecipe(randomRecipe);
-        })
-        .catch(error  => {
-            //  If the API call fails, display an error message
-            recipeContainer.innerHTML =  "<p>Error fetching recipe</p>"
-        })
+        // Display the recipe using reusable function
+        displayRecipe(randomRecipe);
+    })
+    .catch(error  => {
+        //  If the API call fails, display an error message
+        recipeContainer.innerHTML =  "<p>Error fetching recipe</p>"
+    })
 }
 
 // This handles the form submission and calls the food search function when a user searches for a dish
