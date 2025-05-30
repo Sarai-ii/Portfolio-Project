@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Bartender</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Solid&family=Titan+One&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,900;1,100;1,300;1,500;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/ai.css">
+    <script defer src="../src/ai.js"></script>
+</head>
+<body>
+    <main class="page-container">
+        <nav class="nav-container">
+            <div class="nav-logo">
+                <h1 id="heading"><a href="../index.html">WHAT'S DISH</a></h1>
+            </div>
+            <ul class="nav-list">
+                <li id="recipes"><a href="./recipes.html">Recipes</a></li>
+                <li id="ai"><a href="./ai.html">Ask AI</a></li>
+                <li id="cocktails"><a href="./cocktails.html">Cocktails</a></li>
+            </ul>
+        </nav>
+        <h1> Ask the AI Bartender & Chef </h1>
+        <form id="ai-form">
+            <label for="userIngredients">Enter ingredients (comma-separated):</label><br>
+            <textarea id="userIngredients" rows="4" cols="50" placeholder="e.g. rum, lime, ginger, bread, eggs"></textarea><br>
+            <button type="submit">Get Recipe</button>
+        </form>
+        <div id="ai-response"></div>
+    </main>
+</body>
+</html>
