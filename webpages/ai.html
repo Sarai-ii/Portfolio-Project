@@ -28,10 +28,19 @@
         <h1> Ask the AI Bartender & Chef </h1>
         <form id="ai-form">
             <label for="userIngredients">Enter ingredients (comma-separated):</label><br>
+
             <textarea id="userIngredients" rows="4" cols="50" placeholder="e.g. rum, lime, ginger, bread, eggs"></textarea><br>
+
+             <label for="category">Choose category:</label>
+            <select id="category">
+                <option value="meal">Meal</option>
+                <option value="cocktail">Cocktail</option>
+            </select>
             <button type="submit">Get Recipe</button>
         </form>
+
         <div id="ai-response"></div>
+        
     </main>
 </body>
 </html>
