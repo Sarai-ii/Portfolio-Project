@@ -37,14 +37,14 @@ exports.handler = async (event, context) => {
         body = JSON.parse(event.body);
         const { ingredients = "", category } = body;
 
-        // Convert ingredients into a string
-        // const ingredientList = ingredients.split(",").map(i => i.trim())
-        const ingredientList = ingredients;
+        // Convert ingredients into a string and this works as well
+        const ingredientList = ingredients.split(",").map(i => i.trim())
+        //this seems to work with ai
+        // const ingredientList = ingredients;
 
         // Build a prompt for the AI based on ingredients and category
         prompt = `
-        You are a friendly expert bartender and chef. A user has the following ingredients at home: ${ingredientList}.
-        Suggest one fun ${category === 'cocktail' ? "cocktail" : "meal"} they can make, with a title, short description and a simple recipe with steps.
+        You are a friendly expert bartender and chef. A user has the following ingredients at home: ${ingredientList}. Suggest one fun ${category === 'cocktail' ? "cocktail" : "meal"} they can make, with a title, short description and a simple recipe with steps.
         `;
     } catch (err) {
         console.error("Request parsing failed:", err);
