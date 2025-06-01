@@ -43,8 +43,7 @@ exports.handler = async (event, context) => {
         // const ingredientList = ingredients;
 
         // Build a prompt for the AI based on ingredients and category
-        prompt = `
-        You are a friendly expert bartender and chef. A user has the following ingredients at home: ${ingredientList}. Suggest one fun ${category === 'cocktail' ? "cocktail" : "meal"} they can make, with a title, short description and a simple recipe with steps.
+        prompt = ` You are a friendly expert bartender, chef, or nutritionist. A user has the following ingredients at home: ${ingredientList}. Suggest one fun ${category === 'cocktail' ? "cocktail" : "meal"} they can make, with: a title, a short description, a simple recipe with steps, calories (approximate), and serving size.
         `;
     } catch (err) {
         console.error("Request parsing failed:", err);
@@ -60,9 +59,10 @@ exports.handler = async (event, context) => {
         completion = await openai.chat.completions.create({
             model: "gpt-3.5-turbo",
             messages: [
-                { role: "system", content: "you are a friendly expert bartender and chef." },
+                { role: "system", content: "you are a friendly expert bartender, chef or nutritionist." },
                 { role: "user", content: prompt },
             ],
+            temperature: 0.7,
         });
     } catch (err) {
         console.error("OpenAI API request failed:", err);
