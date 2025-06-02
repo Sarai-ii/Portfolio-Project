@@ -12,10 +12,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,900;1,100;1,300;1,500;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/ai.css">
     <script defer src="../src/ai.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Safer Rendering DOM Purify -->
+    <script defer src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>    
 </head>
 <body>
-    <main class="page-container">
+    <div class="page-container">
         <nav class="nav-container">
             <div class="nav-logo">
                 <h1 id="heading"><a href="../index.html">WHAT'S DISH</a></h1>
@@ -26,22 +28,35 @@
                 <li id="cocktails"><a href="./cocktails.html">Cocktails</a></li>
             </ul>
         </nav>
-        <h1> Ask the AI Bartender & Chef </h1>
-        <form id="ai-form">
-            <label for="userIngredients">Enter ingredients (comma-separated):</label><br>
+        <main class="main-container">
+            <h1> Ask the AI Bartender & Chef </h1>
+            <form id="ai-form">
+                <label for="userIngredients">Enter ingredients (comma-separated):</label><br>
 
-            <textarea id="userIngredients" rows="4" cols="50" placeholder="e.g. rum, lime, ginger, bread, eggs"></textarea><br>
+                <textarea id="userIngredients" rows="4" cols="50" placeholder="e.g. rum, lime, ginger, bread, eggs"></textarea><br>
 
-             <label for="category">Choose category:</label>
-            <select id="category">
-                <option value="meal">Meal</option>
-                <option value="cocktail">Cocktail</option>
-            </select>
-            <button type="submit">Get Recipe</button>
-        </form>
-
-        <div id="ai-response"></div>
-
-    </main>
+                <label for="category">Choose category:</label>
+                <select id="category">
+                    <option value="meal">Meal</option>
+                    <option value="cocktail">Cocktail</option>
+                </select>
+                <button type="submit">Get Recipe</button>
+            </form>
+            <div id="ai-response"></div>
+        </main>
+    </div>
+    <footer id="footer-container">
+        <h4 id="footer-heading"><a href="https://saraithomasv1.netlify.app">Created By: Sarai Thomas</a></h4>
+        <ul class="footer-list">
+            <li id="footer-icons">
+                <a href="https://www.linkedin.com/in/saraibusiness/" title="LinkedIn"><img src="https://www.freepnglogos.com/uploads/linkedin-in-logo-png-1.png" width="50" alt="linkedin logo png"/></a>
+                <a href="https://github.com/Sarai-ii" title="Github"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" width="50" alt="Github logo png"/></a>
+                <a href="./about-me.html">About Me</a> 
+            </li>
+            <li id="footer-text"> 
+                © <a href="https://saraithomasv1.netlify.app/#projects">S.A.T Designs</a>--All Right Reserved 2023 
+            </li>
+        </ul>
+    </footer>
 </body>
 </html>

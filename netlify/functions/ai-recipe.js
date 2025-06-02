@@ -39,11 +39,12 @@ exports.handler = async (event, context) => {
 
         // Convert ingredients into a string and this works as well
         const ingredientList = ingredients.split(",").map(i => i.trim())
-        //this seems to work with ai
+        //this seems to work as well
         // const ingredientList = ingredients;
 
         // Build a prompt for the AI based on ingredients
-        prompt = ` You are a friendly expert bartender, chef, or nutritionist. A user has the following ingredients at home: ${ingredientList}. Suggest a recipe they can make, with: a title, a short description, a simple recipe with steps, calories (approximate), and serving size.
+        prompt = ` You are a friendly expert bartender, chef, or nutritionist. If asked you can answer nutritional questions. 
+        If a user lists ingredients: ${ingredientList}. Suggest a recipe they can make, with: a title, a short description, a simple recipe with steps, calories (approximate), and serving size. 
         `;
     } catch (err) {
         console.error("Request parsing failed:", err);
