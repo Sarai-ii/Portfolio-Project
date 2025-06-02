@@ -1,10 +1,20 @@
 const form = document.getElementById("ai-form");
 const responseContainer = document.getElementById("ai-response");
 
+/* edge cases: 
+    1. pressing enter does not active generate recipe 
+    -> 
+    2. if I change the category to cocktail but type in food the recipe generator ignorees the category completely, doesn't seem necessary for this api and just confuses the user 
+    -> removed completely
+    3. Ai response format is markdown, I need to translate the markdown into html 
+        -> maked.js library converts markdown into real HTML
+        -> parse the data.results from ai response container
+    4. CSS
+*/
+
 form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const ingredients = document.getElementById("userIngredients").value;
-    const category = document.getElementById("category")
 
     // Show a loading message
     responseContainer.innerHTML = "<p>Generating your recipe...</p>";
@@ -15,12 +25,12 @@ form.addEventListener("submit", async (e) => {
             headers: {
             "Content-Type": "application/json", //Tells server it's receiving JSON
             },
-            body: JSON.stringify({ ingredients, category }), //Sends the ingredient input to the backend
+            body: JSON.stringify({ ingredients }), //Sends the ingredient input to the backend
         });
 
         const data = await res.json();
         if (data.result) {
-            responseContainer.innerHTML = `<pre>${data.result}</pre>`;
+            responseContainer.innerHTML = marked.parse(data.result);
             //clear the input field for the next entry 
             form.reset()
         } else {

@@ -35,15 +35,15 @@ exports.handler = async (event, context) => {
 
         // Parse the JSON body from the client request
         body = JSON.parse(event.body);
-        const { ingredients = "", category } = body;
+        const { ingredients = "" } = body;
 
         // Convert ingredients into a string and this works as well
         const ingredientList = ingredients.split(",").map(i => i.trim())
         //this seems to work with ai
         // const ingredientList = ingredients;
 
-        // Build a prompt for the AI based on ingredients and category
-        prompt = ` You are a friendly expert bartender, chef, or nutritionist. A user has the following ingredients at home: ${ingredientList}. Suggest one fun ${category === 'cocktail' ? "cocktail" : "meal"} they can make, with: a title, a short description, a simple recipe with steps, calories (approximate), and serving size.
+        // Build a prompt for the AI based on ingredients
+        prompt = ` You are a friendly expert bartender, chef, or nutritionist. A user has the following ingredients at home: ${ingredientList}. Suggest a recipe they can make, with: a title, a short description, a simple recipe with steps, calories (approximate), and serving size.
         `;
     } catch (err) {
         console.error("Request parsing failed:", err);
