@@ -43,9 +43,23 @@ exports.handler = async (event, context) => {
         // const ingredientList = ingredients;
 
         // Build a prompt for the AI based on ingredients
-        prompt = ` You are a friendly expert bartender, chef, or nutritionist. If asked you can answer nutritional questions. 
-        If a user lists ingredients: ${ingredientList}. Suggest a recipe they can make, with: a title, a short description, a simple recipe with steps, calories (approximate), and serving size. 
-        `;
+        prompt = `You are a friendly expert bartender, chef, and nutritionist. 
+        If asked, you can also answer nutritional questions.
+
+        The user has listed the following ingredients: ${ingredientList}
+
+        Suggest one possible recipe using these ingredients. If needed, substitute or add common pantry items.
+
+        Please include:
+    
+        - A recipe title
+        - A short one-sentence description
+        - A list of ingredients
+        - Step-by-step instructions
+        - An approximate calorie count
+        - Serving size
+
+        Keep it concise and well-formatted.`;
     } catch (err) {
         console.error("Request parsing failed:", err);
         return {

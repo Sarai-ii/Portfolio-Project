@@ -51,8 +51,76 @@ body {
     text-decoration: underline;
 }
 
+                    /* MAIN CONTAINTER */
+.main-container {
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 900px;
+    text-align: center;
+}
 
 
+/* Heading Styling */
+#heading {
+    color: #de6b48;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.chat-box {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-family: sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-message {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.user-message {
+  background-color: #e0f7fa;
+  border-left: 4px solid #00acc1;
+}
+
+.ai-message {
+  background-color: #f1f8e9;
+  border-left: 4px solid #8bc34a;
+  white-space: pre-line;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  background-color: #00acc1;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #00838f;
+}
 
 
                     /* FOOTER STYLING */

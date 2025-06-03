@@ -29,20 +29,23 @@
             </ul>
         </nav>
         <main class="main-container">
-            <h1> Ask the AI Bartender & Chef </h1>
-            <form id="ai-form">
+            <h1 id="heading"> Ask the AI Bartender & Chef </h1>
+            <p id="main-overview">Explore something new with the Recipe Randomizer. Simply enter an ingredient — like “salmon,” “tomato,” or “eggs” — or a dish name such as “General Tso’s,” and let the generator surprise you with a mouthwatering recipe. Whether you're cooking for yourself or the whole family, inspiration is just a click away. You can even hit the <strong>Shuffle Recipe</strong> button after submiting a keyword — for a fun, spontaneous twist on your meal planning.</p>
+            <div class="chat-box">
+                <div class="chat-message user-message">
+                <form id="ai-form">
                 <label for="userIngredients">Enter ingredients (comma-separated):</label><br>
-
-                <textarea id="userIngredients" rows="4" cols="50" placeholder="e.g. rum, lime, ginger, bread, eggs"></textarea><br>
-
-                <label for="category">Choose category:</label>
-                <select id="category">
-                    <option value="meal">Meal</option>
-                    <option value="cocktail">Cocktail</option>
-                </select>
+                <input
+                    type="text"
+                    id="userIngredients"
+                    placeholder="e.g. rum, lime, ginger"
+                    autocomplete="off"
+                />
                 <button type="submit">Get Recipe</button>
-            </form>
-            <div id="ai-response"></div>
+                </form>
+                </div>
+                <div class="chat-message" id="ai-response"></div>
+            </div>               
         </main>
     </div>
     <footer id="footer-container">
