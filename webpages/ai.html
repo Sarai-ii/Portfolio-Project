@@ -29,22 +29,23 @@
             </ul>
         </nav>
         <main class="main-container">
-            <h1 id="heading"> Ask the AI Bartender & Chef </h1>
-            <p id="main-overview">Explore something new with the Recipe Randomizer. Simply enter an ingredient — like “salmon,” “tomato,” or “eggs” — or a dish name such as “General Tso’s,” and let the generator surprise you with a mouthwatering recipe. Whether you're cooking for yourself or the whole family, inspiration is just a click away. You can even hit the <strong>Shuffle Recipe</strong> button after submiting a keyword — for a fun, spontaneous twist on your meal planning.</p>
+            <h1 id="heading">BETA AI GENERATOR<br>
+            Not Just Recipes—Kitchen Wisdom, On Tap </h1>
+            <p id="main-overview"> Discover <span>more than just recipes</span>. With a little help from AI, you can turn everyday <span>ingredients</span> into impressive meals — or get smart answers to your <span>cooking curiosities</span>. It’s like having a <span>chef</span> and <span>nutritionist</span> in your pocket.</p>
             <div class="chat-box">
+                <div class="chat-message" id="ai-response"></div>
                 <div class="chat-message user-message">
                 <form id="ai-form">
-                <label for="userIngredients">Enter ingredients (comma-separated):</label><br>
+                <!-- <label for="userIngredients">Enter ingredients (comma-separated):</label><br> -->
                 <input
                     type="text"
                     id="userIngredients"
-                    placeholder="e.g. rum, lime, ginger"
+                    placeholder="e.g. fun summer drink, lemon, chicken"
                     autocomplete="off"
                 />
-                <button type="submit">Get Recipe</button>
+                <button type="submit">Generate</button>
                 </form>
                 </div>
-                <div class="chat-message" id="ai-response"></div>
             </div>               
         </main>
     </div>

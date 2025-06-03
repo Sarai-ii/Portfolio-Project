@@ -64,10 +64,10 @@ body {
 /* Heading Styling */
 #search-heading {
     color: #de6b48;
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
     font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
 }
 
 /* Subtext/Overview Styling */
